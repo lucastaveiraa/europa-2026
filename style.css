@@ -1,0 +1,372 @@
+:root {
+  --ink: #101b2d;
+  --ink-soft: #1b2c44;
+  --paper: #f6f1e4;
+  --paper-dim: #ece4d0;
+  --teal: #178a82;
+  --gold: #e3a712;
+  --coral: #e8483f;
+  --cocoa: #7b4b33;
+  --slate: #3d5a80;
+  --text-dark: #142433;
+  --text-muted: #5a6b80;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+a { color: inherit; }
+
+/* ---------- TOPBAR ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 24px;
+  border-bottom: 3px solid var(--gold);
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+.brand-dot { color: var(--gold); }
+
+.citynav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+.citynav a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--paper-dim);
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.citynav a:hover,
+.citynav a:focus-visible {
+  background: var(--ink-soft);
+  color: var(--paper);
+  outline: none;
+}
+.citynav a.active {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 64px 24px 48px;
+  text-align: center;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+.hero-sub {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+  max-width: 640px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.map-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--ink-soft);
+  position: relative;
+}
+#map {
+  height: 420px;
+  width: 100%;
+  background: var(--ink-soft);
+}
+.map-legend {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(16, 27, 45, 0.88);
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--paper);
+  z-index: 400;
+}
+.map-legend span { display: flex; align-items: center; gap: 6px; }
+.leg-line { width: 22px; height: 2px; display: inline-block; }
+.leg-train { background: var(--gold); }
+.leg-flight {
+  background: repeating-linear-gradient(90deg, var(--coral) 0 4px, transparent 4px 8px);
+}
+
+/* ---------- CITY SECTIONS ---------- */
+.city {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 72px 24px 24px;
+  scroll-margin-top: 70px;
+}
+
+.city-head {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.stamp {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-6deg);
+  flex-shrink: 0;
+  position: relative;
+}
+.stamp::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed var(--accent);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.city-title h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-dark);
+}
+.city-dates {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin: 4px 0 0;
+  font-weight: 500;
+}
+
+.city-intro {
+  max-width: 680px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 18px 0 32px;
+}
+
+.city-note {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+  margin-top: 28px;
+}
+
+/* ---------- DAY CARDS (boarding pass) ---------- */
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.day-grid--single { grid-template-columns: 1fr; max-width: 620px; }
+
+.day-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--paper-dim);
+  border-top: 5px solid var(--accent);
+  padding: 20px 22px 22px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(16, 27, 45, 0.06);
+}
+.day-card::before,
+.day-card::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  background: var(--paper);
+  border: 1px solid var(--paper-dim);
+  border-radius: 50%;
+}
+.day-card::before { left: -6px; }
+.day-card::after { right: -6px; }
+
+.day-card--transit { background: var(--paper-dim); }
+.day-card--pending {
+  background: repeating-linear-gradient(135deg, #fff 0 14px, #fbf7ec 14px 28px);
+}
+
+.day-card header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed var(--paper-dim);
+  padding-bottom: 10px;
+}
+.day-date {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+.day-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: var(--paper);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.day-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+.items li { display: flex; gap: 8px; align-items: flex-start; }
+.items li i { font-style: normal; flex-shrink: 0; }
+.items li.sub {
+  padding-left: 26px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: var(--ink);
+  color: var(--paper-dim);
+  margin-top: 60px;
+  padding: 48px 24px 32px;
+}
+.footer-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+.footer h4 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 0 0 12px;
+}
+.footer p {
+  font-size: 0.85rem;
+  margin: 4px 0;
+}
+.footer-note {
+  max-width: 1000px;
+  margin: 32px auto 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--ink-soft);
+  padding-top: 16px;
+}
+
+/* ---------- LEAFLET OVERRIDES ---------- */
+.city-marker {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--ink);
+  background: var(--gold);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.leaflet-container { font-family: var(--font-body); background: var(--ink-soft) !important; }
+
+/* ---------- FOCUS STATES ---------- */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .topbar { flex-direction: column; gap: 10px; align-items: flex-start; }
+  .city-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  #map { height: 320px; }
+}

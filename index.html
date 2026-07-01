@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europa 2026 — Roteiro de Viagem</title>
+<meta name="description" content="Roteiro da viagem Amsterdã, Antuérpia, Gante, Bruges, Bruxelas e Paris — outubro de 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">EUROPA <span class="brand-dot">·</span> OUT 2026</div>
+  <nav class="citynav" id="citynav">
+    <a href="#ams" data-city="ams">AMS</a>
+    <a href="#anr" data-city="anr">ANR</a>
+    <a href="#gnt" data-city="gnt">GNT</a>
+    <a href="#bge" data-city="bge">BGE</a>
+    <a href="#bru" data-city="bru">BRU</a>
+    <a href="#par" data-city="par">PAR</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">10 — 24 de outubro, 2026</p>
+  <h1>Amsterdã ao Sena,<br>seis cidades em catorze dias.</h1>
+  <p class="hero-sub">Belo Horizonte → Lisboa → Amsterdã → Antuérpia → Gante → Bruges → Bruxelas → Paris → Lisboa → Belo Horizonte</p>
+
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div class="map-legend">
+      <span><i class="leg-line leg-train"></i> trem</span>
+      <span><i class="leg-line leg-flight"></i> voo</span>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ============ AMSTERDAM ============ -->
+  <section class="city" id="ams" style="--accent: var(--teal)">
+    <div class="city-head">
+      <div class="stamp">AMS</div>
+      <div class="city-title">
+        <h2>Amsterdã</h2>
+        <p class="city-dates">11 — 15 de outubro · Hotel JL No76</p>
+      </div>
+    </div>
+    <p class="city-intro">Base tranquila em Oud Zuid, perto do Museumplein. Quatro dias inteiros para museus, canais e bairros — sem pressa, com um bloco final dedicado ao centro histórico.</p>
+
+    <div class="day-grid">
+      <article class="day-card">
+        <header><span class="day-date">11/10</span><span class="day-tag">chegada</span></header>
+        <h3>Tarde livre</h3>
+        <ul class="items">
+          <li><i>✈️</i> Chegada 12h50 · check-in a partir das 15h</li>
+          <li><i>🚶</i> Caminhada sem compromisso — sugestões de jantar:</li>
+          <li class="sub">Utrechtsestraat · De Pijp · Museumplein</li>
+        </ul>
+      </article>
+
+      <article class="day-card">
+        <header><span class="day-date">12/10</span></header>
+        <h3>Rijksmuseum + Vondelpark</h3>
+        <ul class="items">
+          <li><i>🏛️</i> Manhã: Rijksmuseum</li>
+          <li><i>🌳</i> Tarde: Vondelpark — caminhada, corrida leve ou café no parque</li>
+          <li><i>🍽️</i> Noite: jantar em De Pijp</li>
+        </ul>
+      </article>
+
+      <article class="day-card">
+        <header><span class="day-date">13/10</span></header>
+        <h3>Anne Frank + Jordaan + Centro</h3>
+        <ul class="items">
+          <li><i>🏛️</i> Manhã: Casa de Anne Frank <em>(ingresso com antecedência)</em></li>
+          <li><i>🚶</i> Início da tarde: Jordaan, sem pressa</li>
+          <li><i>📍</i> Tarde: Praça Dam → Begijnhof → Mercado das Flores</li>
+          <li><i>☕</i> Fim de tarde: brown café</li>
+          <li><i>🍽️</i> Jantar no centro</li>
+          <li><i>🌙</i> Noite: Red Light District + coffee shop no trajeto</li>
+        </ul>
+      </article>
+
+      <article class="day-card">
+        <header><span class="day-date">14/10</span></header>
+        <h3>Van Gogh + Heineken</h3>
+        <ul class="items">
+          <li><i>🏛️</i> Manhã: Van Gogh Museum</li>
+          <li><i>🍺</i> Tarde: Heineken Experience</li>
+          <li><i>🌙</i> Noite livre — última noite em Amsterdã</li>
+        </ul>
+      </article>
+
+      <article class="day-card day-card--transit">
+        <header><span class="day-date">15/10</span><span class="day-tag">partida</span></header>
+        <h3>Rumo à Bélgica</h3>
+        <ul class="items">
+          <li><i>🎒</i> Checkout antecipado (~9h) · malas no guarda-volumes</li>
+          <li><i>🚄</i> Trem para Antuérpia (~2h25)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ ANTUERPIA ============ -->
+  <section class="city" id="anr" style="--accent: var(--gold)">
+    <div class="city-head">
+      <div class="stamp">ANR</div>
+      <div class="city-title">
+        <h2>Antuérpia</h2>
+        <p class="city-dates">15 de outubro · day trip a caminho de Gante</p>
+      </div>
+    </div>
+    <p class="city-intro">Passagem rápida — chegada por volta de meio-dia, saída às 17h. Só o essencial do centro histórico, tudo caminhável num raio pequeno.</p>
+
+    <div class="day-grid day-grid--single">
+      <article class="day-card">
+        <header><span class="day-date">12h — 17h</span></header>
+        <h3>Centro histórico</h3>
+        <ul class="items">
+          <li><i>🚉</i> Chegada, malas no guarda-volumes da Antwerpen-Centraal</li>
+          <li><i>📍</i> Grote Markt</li>
+          <li><i>⛪</i> Catedral de Nossa Senhora</li>
+          <li><i>🏚️</i> Vlaeykensgang — beco medieval</li>
+          <li><i>🍽️</i> Almoço na região</li>
+          <li><i>🏰</i> Het Steen — fortificação, entrada gratuita, vista do rio</li>
+          <li><i>🚄</i> 17h: trem para Gante (~1h)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ GANTE ============ -->
+  <section class="city" id="gnt" style="--accent: var(--coral)">
+    <div class="city-head">
+      <div class="stamp">GNT</div>
+      <div class="city-title">
+        <h2>Gante</h2>
+        <p class="city-dates">15 — 17 de outubro · Pillows Grand Boutique Hotel Reylof</p>
+      </div>
+    </div>
+    <p class="city-intro">Base para o day trip a Bruges. Cidade universitária, mais viva que Bruges — vale a noite de chegada com calma, sem tentar espremer um dia inteiro que a cidade não pede.</p>
+
+    <div class="day-grid day-grid--single">
+      <article class="day-card">
+        <header><span class="day-date">15/10, noite</span><span class="day-tag">chegada</span></header>
+        <h3>Graslei &amp; Korenlei</h3>
+        <ul class="items">
+          <li><i>🛏️</i> Check-in ~18h-18h30</li>
+          <li><i>🌉</i> Graslei e Korenlei iluminados à noite — o cartão-postal da cidade</li>
+          <li><i>🍽️</i> Jantar na região</li>
+          <li><i>🍻</i> Vrijdagmarkt — praça mais animada, se sobrar energia</li>
+        </ul>
+      </article>
+    </div>
+    <p class="city-note">16/10 é dedicado inteiramente a Bruges (ver seção BGE). Na manhã do 17/10, direto de trem para Bruxelas.</p>
+  </section>
+
+  <!-- ============ BRUGES ============ -->
+  <section class="city" id="bge" style="--accent: var(--cocoa)">
+    <div class="city-head">
+      <div class="stamp">BGE</div>
+      <div class="city-title">
+        <h2>Bruges</h2>
+        <p class="city-dates">16 de outubro · day trip saindo de Gante (25 min de trem)</p>
+      </div>
+    </div>
+    <p class="city-intro">Patrimônio Mundial da UNESCO — cidade medieval praticamente congelada no tempo. Dia inteiro, sem pressa, tudo caminhável.</p>
+
+    <div class="day-grid day-grid--single">
+      <article class="day-card">
+        <header><span class="day-date">dia inteiro</span></header>
+        <h3>Markt, canais e chocolate</h3>
+        <ul class="items">
+          <li><i>📍</i> Markt — praça principal</li>
+          <li><i>🔔</i> Belfort — 366 degraus, vista panorâmica</li>
+          <li><i>⛪</i> Burg + Basílica do Sangue Sagrado</li>
+          <li><i>🛶</i> Passeio de barco pelos canais / Rozenhoedkaai</li>
+          <li><i>🍽️</i> Almoço</li>
+          <li><i>🍫</i> Chocolaterias</li>
+          <li><i>🚶</i> Caminhada livre pelas ruas menos turísticas</li>
+          <li><i>🚄</i> Trem de volta para Gante ao fim da tarde</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ BRUXELAS ============ -->
+  <section class="city" id="bru" style="--accent: var(--slate)">
+    <div class="city-head">
+      <div class="stamp">BRU</div>
+      <div class="city-title">
+        <h2>Bruxelas</h2>
+        <p class="city-dates">17 de outubro · trem de Gante (35 min) → trem para Paris (1h30) ao fim da tarde</p>
+      </div>
+    </div>
+    <p class="city-intro">Dia curto de passagem — capital belga e sede das instituições da UE. Foco no essencial do centro histórico antes de seguir viagem.</p>
+
+    <div class="day-grid day-grid--single">
+      <article class="day-card">
+        <header><span class="day-date">manhã — tarde</span></header>
+        <h3>Grand Place e centro histórico</h3>
+        <ul class="items">
+          <li><i>🎒</i> Malas no locker da Bruxelas-Midi</li>
+          <li><i>📍</i> Grand Place</li>
+          <li><i>🛍️</i> Galeries Royales Saint-Hubert</li>
+          <li><i>🚰</i> Manneken Pis — rápido, de passagem</li>
+          <li><i>🧇</i> Almoço: waffle / fritas de rua</li>
+          <li><i>🚶</i> Caminhada livre pelo centro histórico</li>
+          <li><i>🚄</i> Volta à Bruxelas-Midi → trem para Paris</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ PARIS ============ -->
+  <section class="city" id="par" style="--accent: var(--coral)">
+    <div class="city-head">
+      <div class="stamp">PAR</div>
+      <div class="city-title">
+        <h2>Paris</h2>
+        <p class="city-dates">17 — 24 de outubro · Airbnb, 15º arrondissement</p>
+      </div>
+    </div>
+    <p class="city-intro">Seis noites — o trecho mais longo da viagem, com ritmo tranquilo. Roteiro dia a dia ainda <strong>em planejamento</strong>; por enquanto, os destaques já definidos:</p>
+
+    <div class="day-grid day-grid--single">
+      <article class="day-card day-card--pending">
+        <header><span class="day-date">18 — 23/10</span><span class="day-tag">em aberto</span></header>
+        <h3>Destaques confirmados até aqui</h3>
+        <ul class="items">
+          <li><i>🏛️</i> Louvre e Musée d'Orsay (em dias separados)</li>
+          <li><i>🗼</i> Torre Eiffel + Trocadéro ao entardecer</li>
+          <li><i>⛰️</i> Montmartre e Sacré-Cœur</li>
+          <li><i>🏘️</i> Le Marais</li>
+          <li><i>🏰</i> Versalhes (day trip, meio dia)</li>
+          <li><i>🎾</i> Roland Garros — visita guiada ao complexo e museu</li>
+        </ul>
+      </article>
+    </div>
+    <p class="city-note">24/10 — voo Paris (Orly) → Lisboa → Belo Horizonte.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Voos</h4>
+      <p>10/10 BH → Lisboa · TP0104 · 17h25–06h45</p>
+      <p>11/10 Lisboa → Amsterdã · TP0668 · 08h45–12h50</p>
+      <p>24/10 Paris (Orly) → Lisboa · TP0441 · 06h00–07h35</p>
+      <p>24/10 Lisboa → BH · TP0103 · 10h10–15h50</p>
+    </div>
+    <div>
+      <h4>Hospedagem</h4>
+      <p>Amsterdã — Hotel JL No76</p>
+      <p>Gante — Pillows Grand Boutique Hotel Reylof</p>
+      <p>Paris — Airbnb, 15º arrondissement</p>
+    </div>
+  </div>
+  <p class="footer-note">Roteiro em construção — última atualização conforme a viagem se aproxima.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
