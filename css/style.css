@@ -563,10 +563,28 @@ main { padding-top: 40px; }
 }
 .transit-item .ic { width: 22px; height: 22px; margin-top: 3px; }
 .transit-body { flex: 1; min-width: 0; }
+.transit-route-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 0 0 4px;
+}
 .transit-route {
   font-weight: 700;
   font-size: 1.05rem;
-  margin: 0 0 4px;
+  margin: 0;
+}
+.transit-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  padding: 2px 9px;
+  border-radius: 20px;
 }
 .transit-meta {
   font-family: var(--font-mono);
@@ -585,6 +603,17 @@ main { padding-top: 40px; }
   font-size: 0.85rem;
   color: var(--text-muted);
   margin: 6px 0 0;
+}
+.transit-sketch {
+  flex-shrink: 0;
+  align-self: center;
+  width: 96px;
+  height: 48px;
+  color: var(--accent);
+  margin-left: auto;
+}
+@media (max-width: 560px) {
+  .transit-sketch { width: 64px; height: 32px; }
 }
 
 /* ---------- STAY CARDS (hospedagem.html) ---------- */
@@ -750,6 +779,13 @@ main { padding-top: 40px; }
   align-items: center;
   justify-content: center;
   box-shadow: 0 1px 3px rgba(16, 27, 45, 0.4);
+}
+.poi-marker-inner--hotel {
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  border: 2px solid var(--gold);
+  box-shadow: 0 1px 4px rgba(16, 27, 45, 0.55);
 }
 
 .poi-num {

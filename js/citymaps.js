@@ -1,8 +1,12 @@
 // Small per-city maps on roteiro.html — one per city section, pins numbered
 // to match the "poi-num" badges next to the matching day-card list items.
+const hotelIconSvg =
+  '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>';
+
 const cityMapData = {
   ams: {
     accent: "#147972",
+    hotel: { name: "Hotel JL No76", lat: 52.3605, lng: 4.8842 },
     points: [
       { name: "Rijksmuseum", lat: 52.36, lng: 4.8852 },
       { name: "Vondelpark", lat: 52.3579, lng: 4.8686 },
@@ -27,6 +31,7 @@ const cityMapData = {
   },
   gnt: {
     accent: "#c32117",
+    hotel: { name: "Pillows Grand Boutique Hotel Reylof", lat: 51.0548, lng: 3.7151 },
     points: [
       { name: "Graslei & Korenlei", lat: 51.0548, lng: 3.7208 },
       { name: "Vrijdagmarkt", lat: 51.0537, lng: 3.7255 },
@@ -51,6 +56,7 @@ const cityMapData = {
   },
   par: {
     accent: "#c32117",
+    hotel: { name: "Airbnb — Av. de Breteuil", lat: 48.8464, lng: 2.3111 },
     points: [
       { name: "Louvre", lat: 48.8606, lng: 2.3376 },
       { name: "Musée d'Orsay", lat: 48.86, lng: 2.3266 },
@@ -65,7 +71,7 @@ const cityMapData = {
   },
 };
 
-Object.entries(cityMapData).forEach(([code, { accent, points }]) => {
+Object.entries(cityMapData).forEach(([code, { accent, points, hotel }]) => {
   const el = document.getElementById(`citymap-${code}`);
   if (!el || !points.length) return;
 
@@ -74,9 +80,9 @@ Object.entries(cityMapData).forEach(([code, { accent, points }]) => {
     14
   );
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO",
-    maxZoom: 19,
+    maxZoom: 20,
   }).addTo(map);
 
   points.forEach((point, i) => {
@@ -91,6 +97,20 @@ Object.entries(cityMapData).forEach(([code, { accent, points }]) => {
     });
   });
 
-  const bounds = L.latLngBounds(points.map((p) => [p.lat, p.lng]));
-  map.fitBounds(bounds, { padding: [28, 28], maxZoom: 15 });
+  const boundsPoints = points.map((p) => [p.lat, p.lng]);
+
+  if (hotel) {
+    const hotelIcon = L.divIcon({
+      className: "poi-marker",
+      html: `<div class="poi-marker-inner poi-marker-inner--hotel">${hotelIconSvg}</div>`,
+      iconSize: [28, 28],
+    });
+    L.marker([hotel.lat, hotel.lng], { icon: hotelIcon })
+      .addTo(map)
+      .bindTooltip(`${hotel.name} (hospedagem)`, { permanent: false, direction: "top" });
+    boundsPoints.push([hotel.lat, hotel.lng]);
+  }
+
+  const bounds = L.latLngBounds(boundsPoints);
+  map.fitBounds(bounds, { padding: [28, 28], maxZoom: 16 });
 });

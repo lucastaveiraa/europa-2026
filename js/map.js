@@ -32,9 +32,9 @@ const map = L.map("map", {
   zoomControl: true,
 }).setView([50.5, 3.8], 6);
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
   attribution: "&copy; OpenStreetMap &copy; CARTO",
-  maxZoom: 19,
+  maxZoom: 20,
 }).addTo(map);
 
 // train legs: keep a reference + the route index at which they become "travelled"
@@ -46,7 +46,7 @@ const trainPolylines = trainLegs.map(([a, b]) => {
       [from.lat, from.lng],
       [to.lat, to.lng],
     ],
-    { color: "#e3a712", weight: 1.5, opacity: 0.3 }
+    { color: "#8e680b", weight: 2, opacity: 0.45 }
   ).addTo(map);
   const maxIdx = Math.max(routeOrder.indexOf(a), routeOrder.indexOf(b));
   return { layer, maxIdx };
@@ -60,7 +60,7 @@ flightLegs.forEach(([a, b]) => {
       [from.lat, from.lng],
       [to.lat, to.lng],
     ],
-    { color: "#e8483f", weight: 2, opacity: 0.85, dashArray: "2 8" }
+    { color: "#c32117", weight: 2.5, opacity: 0.85, dashArray: "2 8" }
   ).addTo(map);
 });
 
