@@ -9,7 +9,15 @@
   --cocoa: #7b4b33;
   --slate: #3d5a80;
   --text-dark: #142433;
-  --text-muted: #5a6b80;
+  --text-muted: #56667a;
+  --text-muted-dark: #71849c;
+
+  /* AA-safe (4.5:1+) variants of teal/gold/coral for text, icons and
+     borders on light backgrounds — the brand hues above are too light
+     for that once used as text, so city sections use these instead. */
+  --accent-teal: #147972;
+  --accent-gold: #8e680b;
+  --accent-coral: #c32117;
 
   --font-display: "Fraunces", serif;
   --font-body: "Inter", sans-serif;
@@ -87,9 +95,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   letter-spacing: 0.06em;
   text-decoration: none;
   color: var(--paper-dim);
-  padding: 6px 10px;
+  padding: 13px 12px;
   border-radius: 4px;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
   transition: background 0.15s, color 0.15s;
 }
 .citynav a:hover,
@@ -149,7 +159,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   flex-direction: column;
   gap: 10px;
 }
-.quicknav-tile:nth-child(1) { background: var(--teal); }
+.quicknav-tile:nth-child(1) { background: var(--accent-teal); }
 .quicknav-tile:nth-child(2) { background: var(--cocoa); }
 .quicknav-tile:nth-child(3) { background: var(--slate); }
 .quicknav-tile h3 {
@@ -160,7 +170,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .quicknav-tile p {
   margin: 0;
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.88);
   max-width: 32ch;
 }
 
@@ -191,7 +200,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   color: var(--text-dark);
 }
 .statsband .countdown strong {
-  color: var(--coral);
+  color: var(--accent-coral);
   font-size: 1.15em;
 }
 .statsband .stats-facts {
@@ -271,8 +280,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   .scrolly { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
   .mapside {
     position: sticky;
-    top: 72px;
-    height: calc(100vh - 100px);
+    top: 88px;
+    height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
   }
@@ -284,7 +293,7 @@ main { padding-top: 40px; }
 
 .city {
   padding: 0 0 56px;
-  scroll-margin-top: 84px;
+  scroll-margin-top: 96px;
 }
 .city:first-of-type { padding-top: 0; }
 
@@ -475,9 +484,10 @@ main { padding-top: 40px; }
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 .footer-nav a {
+  display: block;
+  padding: 10px 0;
   text-decoration: underline;
   text-underline-offset: 3px;
   color: var(--paper-dim);
@@ -491,7 +501,7 @@ main { padding-top: 40px; }
   margin: 32px auto 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--text-muted-dark);
   border-top: 1px solid var(--ink-soft);
   padding-top: 16px;
 }
@@ -520,10 +530,14 @@ main { padding-top: 40px; }
 }
 .leaflet-container { font-family: var(--font-body); background: var(--ink-soft) !important; }
 
-/* ---------- FOCUS STATES ---------- */
+/* ---------- FOCUS STATES ----------
+   Two-tone ring (dark + light) so it stays visible at 3:1+ against every
+   surface on the page — light cards, the ink header/footer, and the
+   colored quicknav tiles all read differently against a single color. */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--ink);
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--paper);
 }
 
 /* ---------- RESPONSIVE ---------- */
