@@ -604,16 +604,57 @@ main { padding-top: 40px; }
   color: var(--text-muted);
   margin: 6px 0 0;
 }
-.transit-sketch {
+/* Real, tiny, non-interactive map showing the actual leg on the globe —
+   long-haul flights naturally render more zoomed out than local train
+   hops, which reinforces the voo/trem distinction on top of the tag. */
+.transit-map {
   flex-shrink: 0;
   align-self: center;
-  width: 96px;
-  height: 48px;
-  color: var(--accent);
+  width: 108px;
+  height: 54px;
   margin-left: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--paper-dim);
+  border: 1px solid var(--paper-dim);
+  pointer-events: none;
 }
 @media (max-width: 560px) {
-  .transit-sketch { width: 64px; height: 32px; }
+  .transit-map { width: 72px; height: 40px; }
+}
+
+/* ---------- RASTER ICONS (user-supplied plane/train silhouettes) ----------
+   mask-image keeps a solid black-on-transparent PNG tintable to each
+   item's --accent, the same way the SVG icon set works elsewhere. */
+.ic-mask {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-color: var(--accent);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.ic-mask--plane {
+  -webkit-mask-image: url("../images/icon-plane.png");
+  mask-image: url("../images/icon-plane.png");
+}
+.ic-mask--train {
+  -webkit-mask-image: url("../images/icon-train.png");
+  mask-image: url("../images/icon-train.png");
+}
+.transit-item .ic-mask { width: 22px; height: 22px; margin-top: 3px; }
+
+.map-credit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin: 24px 0 0;
 }
 
 /* ---------- STAY CARDS (hospedagem.html) ---------- */
