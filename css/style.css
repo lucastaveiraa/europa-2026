@@ -606,13 +606,19 @@ main { padding-top: 40px; }
 }
 /* Real, tiny, non-interactive map showing the actual leg on the globe —
    long-haul flights naturally render more zoomed out than local train
-   hops, which reinforces the voo/trem distinction on top of the tag. */
-.transit-map {
+   hops, which reinforces the voo/trem distinction on top of the tag.
+   The expand button reopens the same leg in the shared map modal. */
+.transit-map-wrap {
+  position: relative;
   flex-shrink: 0;
   align-self: center;
   width: 108px;
   height: 54px;
   margin-left: auto;
+}
+.transit-map {
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   overflow: hidden;
   background: var(--paper-dim);
@@ -620,8 +626,18 @@ main { padding-top: 40px; }
   pointer-events: none;
 }
 @media (max-width: 560px) {
-  .transit-map { width: 72px; height: 40px; }
+  .transit-map-wrap { width: 72px; height: 40px; }
 }
+
+.map-expand-btn--sm {
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  right: 4px;
+  border-radius: 5px;
+  pointer-events: auto;
+}
+.map-expand-btn--sm .ic { width: 11px; height: 11px; }
 
 /* ---------- RASTER ICONS (user-supplied plane/train silhouettes) ----------
    mask-image keeps a solid black-on-transparent PNG tintable to each
@@ -641,8 +657,8 @@ main { padding-top: 40px; }
   mask-size: contain;
 }
 .ic-mask--plane {
-  -webkit-mask-image: url("../images/icon-plane.png");
-  mask-image: url("../images/icon-plane.png");
+  -webkit-mask-image: url("../images/icon-plane.webp");
+  mask-image: url("../images/icon-plane.webp");
 }
 .ic-mask--train {
   -webkit-mask-image: url("../images/icon-train.png");
