@@ -904,12 +904,29 @@ main { padding-top: 40px; }
 .leaflet-container { font-family: var(--font-body); background: var(--ink-soft) !important; }
 
 /* ---------- PER-CITY MAPS (roteiro.html) ---------- */
+.city-map-label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 10px;
+  max-width: 680px;
+}
+.city-map-label .eyebrow {
+  margin: 0;
+  color: var(--accent);
+}
+.city-map-label p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
 .city-map-wrap {
   position: relative;
   margin: 0 0 32px;
   border-radius: 12px;
   overflow: hidden;
-  border: 2px solid var(--ink-soft);
+  border: 2px solid var(--accent);
   max-width: 680px;
 }
 .city-map { height: 260px; width: 100%; background: var(--ink-soft); }
