@@ -113,11 +113,19 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   color: var(--ink);
 }
 
-/* ---------- HERO ---------- */
+/* ---------- HERO ----------
+   background-color is the fallback while images/hero.jpg isn't in place yet;
+   the gradient overlay is CSS-generated so it always renders even if the
+   photo 404s, keeping the white text legible either way. */
 .hero {
-  background: var(--ink);
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(180deg, rgba(16, 27, 45, 0.55) 0%, rgba(16, 27, 45, 0.75) 100%),
+    url("../images/hero.jpg");
+  background-size: cover;
+  background-position: center;
   color: var(--paper);
-  padding: 64px 24px 56px;
+  padding: 96px 24px 72px;
   text-align: center;
 }
 .eyebrow {

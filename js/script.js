@@ -3,7 +3,7 @@ const cities = [
   { code: "LIS", name: "Lisboa",     lat: 38.7223, lng: -9.1393 },
   { code: "AMS", name: "Amsterdã",   lat: 52.3676, lng: 4.9041 },
   { code: "ANR", name: "Antuérpia",  lat: 51.2194, lng: 4.4025 },
-  { code: "GNT", name: "Gante",      lat: 51.0543, lng: 3.7174 },
+  { code: "GNT", name: "Ghent",      lat: 51.0543, lng: 3.7174 },
   { code: "BGE", name: "Bruges",     lat: 51.2093, lng: 3.2247 },
   { code: "BRU", name: "Bruxelas",   lat: 50.8503, lng: 4.3517 },
   { code: "PAR", name: "Paris",      lat: 48.8566, lng: 2.3522 },
