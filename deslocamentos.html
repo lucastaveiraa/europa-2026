@@ -273,6 +273,16 @@
       </ul>
     </div>
   </div>
+  <div class="footer-suggest">
+    <h4>Sugestões</h4>
+    <p>Tem alguma ideia, correção ou sugestão pro roteiro? Manda aqui — vai direto pro Lucas.</p>
+    <form class="suggest-form" id="suggestForm">
+      <input type="text" id="suggestName" placeholder="Seu nome (opcional)">
+      <textarea id="suggestMessage" placeholder="Sua sugestão..." rows="3" required></textarea>
+      <button type="submit" class="suggest-submit">Enviar sugestão</button>
+      <p class="suggest-status" id="suggestStatus" hidden></p>
+    </form>
+  </div>
 </footer>
 
 <div class="map-modal" id="mapModal" aria-hidden="true">
@@ -287,5 +297,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/deslocamentos-map.js"></script>
+<script src="js/suggest.js"></script>
 </body>
 </html>

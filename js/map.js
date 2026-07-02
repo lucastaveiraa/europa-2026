@@ -89,6 +89,20 @@ cities.forEach((c) => {
 const bounds = L.latLngBounds(cities.map((c) => [c.lat, c.lng]));
 map.fitBounds(bounds, { padding: [30, 30] });
 
+// Leaflet measures its container the instant it's created — if webfonts
+// are still swapping in or the sticky sidebar hasn't settled its final
+// height yet, that measurement can be stale, leaving the map looking
+// cropped. Re-measure once things have actually settled, and again on
+// resize (also covers the desktop/mobile layout breakpoint switching).
+function refreshMapSize() {
+  map.invalidateSize();
+  map.fitBounds(bounds, { padding: [30, 30] });
+}
+window.addEventListener("load", refreshMapSize);
+setTimeout(refreshMapSize, 400);
+setTimeout(refreshMapSize, 1200);
+window.addEventListener("resize", () => map.invalidateSize());
+
 // ---------- Scroll-driven map state ----------
 function setActiveCity(code) {
   const idx = routeOrder.indexOf(code);

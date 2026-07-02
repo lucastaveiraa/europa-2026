@@ -71,6 +71,8 @@ const cityMapData = {
   },
 };
 
+const cityMapInstances = [];
+
 Object.entries(cityMapData).forEach(([code, { accent, points, hotel }]) => {
   const el = document.getElementById(`citymap-${code}`);
   if (!el || !points.length) return;
@@ -113,4 +115,18 @@ Object.entries(cityMapData).forEach(([code, { accent, points, hotel }]) => {
 
   const bounds = L.latLngBounds(boundsPoints);
   map.fitBounds(bounds, { padding: [28, 28], maxZoom: 16 });
+  cityMapInstances.push(map);
+
+  // re-measure once webfonts/layout have actually settled — see the same
+  // fix in map.js for why this matters
+  function refreshSize() {
+    map.invalidateSize();
+    map.fitBounds(bounds, { padding: [28, 28], maxZoom: 16 });
+  }
+  setTimeout(refreshSize, 400);
+  setTimeout(refreshSize, 1200);
+});
+
+window.addEventListener("resize", () => {
+  cityMapInstances.forEach((m) => m.invalidateSize());
 });

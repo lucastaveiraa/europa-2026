@@ -332,10 +332,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
     position: sticky;
     top: 132px;
     height: calc(100vh - 164px);
+    min-height: 420px;
     display: flex;
     flex-direction: column;
   }
-  #map { height: 100%; flex: 1; }
+  .map-wrap { flex: 1; min-height: 260px; min-width: 0; }
+  #map { height: 100%; }
 }
 
 /* ---------- CITY SECTIONS ---------- */
@@ -448,8 +450,9 @@ main { padding-top: 40px; }
 
 .day-card header {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
   margin-bottom: 10px;
   border-bottom: 1px dashed var(--paper-dim);
   padding-bottom: 10px;
@@ -470,6 +473,22 @@ main { padding-top: 40px; }
   padding: 2px 8px;
   border-radius: 20px;
 }
+.day-detail-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--paper-dim);
+  background: var(--paper);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.day-detail-btn:hover { background: var(--paper-dim); }
+.day-detail-btn .ic { width: 14px; height: 14px; margin: 0; color: inherit; }
 
 .day-card h3 {
   font-size: 1.15rem;
@@ -629,15 +648,19 @@ main { padding-top: 40px; }
   .transit-map-wrap { width: 72px; height: 40px; }
 }
 
-.map-expand-btn--sm {
-  width: 20px;
-  height: 20px;
-  top: 4px;
-  right: 4px;
-  border-radius: 5px;
+/* Combined selector (not just .map-expand-btn--sm) so this reliably wins
+   over the base .map-expand-btn size rule regardless of source order —
+   two same-specificity single-class rules would otherwise let whichever
+   is declared later in the file win, which was the actual bug here. */
+.map-expand-btn.map-expand-btn--sm {
+  width: 16px;
+  height: 16px;
+  top: 3px;
+  right: 3px;
+  border-radius: 4px;
   pointer-events: auto;
 }
-.map-expand-btn--sm .ic { width: 11px; height: 11px; }
+.map-expand-btn.map-expand-btn--sm .ic { width: 9px; height: 9px; }
 
 /* ---------- RASTER ICONS (user-supplied plane/train silhouettes) ----------
    mask-image keeps a solid black-on-transparent PNG tintable to each
@@ -779,6 +802,73 @@ main { padding-top: 40px; }
 .footer-nav a:hover,
 .footer-nav a:focus-visible { color: var(--paper); }
 
+.footer-suggest {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--ink-soft);
+}
+.footer-suggest h4 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+.footer-suggest p {
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+  margin: 0 0 16px;
+  max-width: 52ch;
+}
+.suggest-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 560px;
+}
+.suggest-form input,
+.suggest-form textarea {
+  width: 100%;
+  background: var(--ink-soft);
+  border: 1px solid rgba(246, 241, 228, 0.18);
+  border-radius: 8px;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  resize: vertical;
+}
+.suggest-form input::placeholder,
+.suggest-form textarea::placeholder { color: var(--text-muted-dark); }
+.suggest-form input:focus-visible,
+.suggest-form textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+.suggest-submit {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--gold);
+  border: none;
+  border-radius: 8px;
+  padding: 11px 20px;
+  cursor: pointer;
+}
+.suggest-submit:hover { background: #f0bc3d; }
+.suggest-status {
+  font-size: 0.8rem;
+  color: var(--paper-dim);
+  margin: 0;
+  width: 100%;
+}
+
 .footer-note {
   max-width: 1000px;
   margin: 32px auto 0;
@@ -900,6 +990,44 @@ main { padding-top: 40px; }
 @media (max-width: 640px) {
   .map-modal { padding: 12px; }
   .map-modal-inner { height: min(85vh, 640px); }
+}
+
+/* ---------- DAY DETAIL MODAL (roteiro.html) ----------
+   Same overlay/box as the map popup, but sized to its text content
+   instead of a fixed height, and scrollable for longer days. */
+.map-modal-inner.day-modal-inner {
+  height: auto;
+  max-height: min(80vh, 720px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.day-modal-body { padding: 52px 28px 32px; }
+.day-modal-title {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  margin: 0 0 4px;
+  padding-right: 36px;
+}
+.day-modal-dates {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin: 0 0 22px;
+}
+.day-modal-block { margin: 0 0 20px; }
+.day-modal-block h3 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+.day-modal-block p {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .poi-marker-inner {

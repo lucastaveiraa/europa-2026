@@ -28,6 +28,7 @@
   <symbol id="ic-boat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18l-2 5H5l-2-5z"/><path d="M6 15V9l6-4 6 4v6"/><path d="M9 9h6"/></symbol>
   <symbol id="ic-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></symbol>
   <symbol id="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="ic-detail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
 </svg>
 
 <header class="topbar">
@@ -97,7 +98,7 @@
 
       <div class="day-grid">
         <article class="day-card">
-          <header><span class="day-date">11/10</span><span class="day-tag">chegada</span></header>
+          <header><span class="day-date">11/10</span><span class="day-tag">chegada</span><button class="day-detail-btn" type="button" data-day="ams-1" aria-label="Ver detalhamento completo do dia 11/10"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Tarde livre</h3>
           <ul class="items">
             <li><i class="ic-mask ic-mask--plane" aria-hidden="true"></i> Chegada 12h50 · check-in a partir das 15h</li>
@@ -107,7 +108,7 @@
         </article>
 
         <article class="day-card">
-          <header><span class="day-date">12/10</span></header>
+          <header><span class="day-date">12/10</span><button class="day-detail-btn" type="button" data-day="ams-2" aria-label="Ver detalhamento completo do dia 12/10"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Rijksmuseum + Vondelpark</h3>
           <ul class="items">
             <li><span class="poi-num">1</span><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Manhã: Rijksmuseum</li>
@@ -117,7 +118,7 @@
         </article>
 
         <article class="day-card">
-          <header><span class="day-date">13/10</span></header>
+          <header><span class="day-date">13/10</span><button class="day-detail-btn" type="button" data-day="ams-3" aria-label="Ver detalhamento completo do dia 13/10"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Anne Frank + Jordaan + Centro</h3>
           <ul class="items">
             <li><span class="poi-num">3</span><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Manhã: Casa de Anne Frank <em>(ingresso com antecedência)</em></li>
@@ -130,7 +131,7 @@
         </article>
 
         <article class="day-card">
-          <header><span class="day-date">14/10</span></header>
+          <header><span class="day-date">14/10</span><button class="day-detail-btn" type="button" data-day="ams-4" aria-label="Ver detalhamento completo do dia 14/10"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Van Gogh + Heineken</h3>
           <ul class="items">
             <li><span class="poi-num">9</span><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Manhã: Van Gogh Museum</li>
@@ -140,7 +141,7 @@
         </article>
 
         <article class="day-card day-card--transit">
-          <header><span class="day-date">15/10</span><span class="day-tag">partida</span></header>
+          <header><span class="day-date">15/10</span><span class="day-tag">partida</span><button class="day-detail-btn" type="button" data-day="ams-5" aria-label="Ver detalhamento completo do dia 15/10"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Rumo à Bélgica</h3>
           <ul class="items">
             <li><svg class="ic" aria-hidden="true"><use href="#ic-bag"/></svg> Checkout antecipado (~9h) · malas no guarda-volumes</li>
@@ -170,7 +171,7 @@
 
       <div class="day-grid day-grid--single">
         <article class="day-card">
-          <header><span class="day-date">12h — 17h</span></header>
+          <header><span class="day-date">12h — 17h</span><button class="day-detail-btn" type="button" data-day="anr-1" aria-label="Ver detalhamento completo do dia em Antuérpia"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Centro histórico</h3>
           <ul class="items">
             <li><i class="ic-mask ic-mask--train" aria-hidden="true"></i> Chegada, malas no guarda-volumes da Antwerpen-Centraal</li>
@@ -205,7 +206,7 @@
 
       <div class="day-grid day-grid--single">
         <article class="day-card">
-          <header><span class="day-date">15/10, noite</span><span class="day-tag">chegada</span></header>
+          <header><span class="day-date">15/10, noite</span><span class="day-tag">chegada</span><button class="day-detail-btn" type="button" data-day="gnt-1" aria-label="Ver detalhamento completo da noite em Ghent"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Graslei &amp; Korenlei</h3>
           <ul class="items">
             <li><svg class="ic" aria-hidden="true"><use href="#ic-bag"/></svg> Check-in ~18h-18h30</li>
@@ -238,7 +239,7 @@
 
       <div class="day-grid day-grid--single">
         <article class="day-card">
-          <header><span class="day-date">dia inteiro</span></header>
+          <header><span class="day-date">dia inteiro</span><button class="day-detail-btn" type="button" data-day="bge-1" aria-label="Ver detalhamento completo do dia em Bruges"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Markt, canais e chocolate</h3>
           <ul class="items">
             <li><span class="poi-num">1</span><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Markt — praça principal</li>
@@ -274,7 +275,7 @@
 
       <div class="day-grid day-grid--single">
         <article class="day-card">
-          <header><span class="day-date">manhã — tarde</span></header>
+          <header><span class="day-date">manhã — tarde</span><button class="day-detail-btn" type="button" data-day="bru-1" aria-label="Ver detalhamento completo do dia em Bruxelas"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Grand Place e centro histórico</h3>
           <ul class="items">
             <li><svg class="ic" aria-hidden="true"><use href="#ic-bag"/></svg> Malas no locker da Bruxelas-Midi</li>
@@ -309,7 +310,7 @@
 
       <div class="day-grid day-grid--single">
         <article class="day-card day-card--pending">
-          <header><span class="day-date">18 — 23/10</span><span class="day-tag">em aberto</span></header>
+          <header><span class="day-date">18 — 23/10</span><span class="day-tag">em aberto</span><button class="day-detail-btn" type="button" data-day="par-1" aria-label="Ver detalhamento completo dos destaques de Paris"><svg class="ic" aria-hidden="true"><use href="#ic-detail"/></svg></button></header>
           <h3>Destaques confirmados até aqui</h3>
           <ul class="items">
             <li><span class="poi-num">1</span><span class="poi-num">2</span><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Louvre e Musée d'Orsay (em dias separados)</li>
@@ -354,6 +355,16 @@
       </ul>
     </div>
   </div>
+  <div class="footer-suggest">
+    <h4>Sugestões</h4>
+    <p>Tem alguma ideia, correção ou sugestão pro roteiro? Manda aqui — vai direto pro Lucas.</p>
+    <form class="suggest-form" id="suggestForm">
+      <input type="text" id="suggestName" placeholder="Seu nome (opcional)">
+      <textarea id="suggestMessage" placeholder="Sua sugestão..." rows="3" required></textarea>
+      <button type="submit" class="suggest-submit">Enviar sugestão</button>
+      <p class="suggest-status" id="suggestStatus" hidden></p>
+    </form>
+  </div>
 </footer>
 
 <div class="map-modal" id="mapModal" aria-hidden="true">
@@ -366,9 +377,20 @@
   </div>
 </div>
 
+<div class="map-modal" id="dayModal" aria-hidden="true">
+  <div class="map-modal-inner day-modal-inner">
+    <button class="map-modal-close" type="button" id="dayModalClose" aria-label="Fechar detalhamento">
+      <svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg>
+    </button>
+    <div class="day-modal-body" id="dayModalBody"></div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/map.js"></script>
 <script src="js/citymaps.js"></script>
 <script src="js/mapmodal.js"></script>
+<script src="js/daydetails.js"></script>
+<script src="js/suggest.js"></script>
 </body>
 </html>
