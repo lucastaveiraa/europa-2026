@@ -8,38 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- Icon sprite (replaces emoji glyphs) -->
-<svg style="display:none" aria-hidden="true">
-  <symbol id="ic-flight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l18-8-8 18-2-8-8-2z"/></symbol>
-  <symbol id="ic-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="12" rx="4"/><path d="M5 11h14"/><circle cx="9" cy="19" r="1.2"/><circle cx="15" cy="19" r="1.2"/><path d="M8.5 15.5l-2 3.5M15.5 15.5l2 3.5"/></symbol>
-  <symbol id="ic-walk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 19c3-1 4-4 4-7.5S11 6 14 6"/><circle cx="15.3" cy="5.3" r="2"/><circle cx="4.3" cy="19.3" r="1.2"/></symbol>
-  <symbol id="ic-see" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10M20 21V10M2.5 10L12 4l9.5 6M8 10v11M12 10v11M16 10v11"/></symbol>
-  <symbol id="ic-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v7a2 2 0 0 0 4 0V2"/><path d="M9 9v13"/><path d="M17 2c-1.7 0-3 2-3 5s1.3 4 3 4 3-1 3-4-1.3-5-3-5z"/><path d="M17 11v11"/></symbol>
-  <symbol id="ic-drink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h13v9a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V3z"/><path d="M17 6h2a3 3 0 0 1 0 6h-2"/><path d="M3 21h15"/></symbol>
-  <symbol id="ic-place" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></symbol>
-  <symbol id="ic-nature" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c9 0 14-5 14-15C10 5 5 10 5 20z"/><path d="M9.5 15.5c2-2.5 3.8-4.3 7-7"/></symbol>
-  <symbol id="ic-night" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8.5 8.5 0 1 1 9.8 4a7 7 0 0 0 10.2 10.2z"/></symbol>
-  <symbol id="ic-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M5 13h14"/></symbol>
-  <symbol id="ic-boat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18l-2 5H5l-2-5z"/><path d="M6 15V9l6-4 6 4v6"/><path d="M9 9h6"/></symbol>
-</svg>
-
 <header class="topbar">
-  <div class="brand">EUROPA <span class="brand-dot">·</span> OUT 2026</div>
-  <nav class="citynav" id="citynav" aria-label="Navegação entre cidades">
-    <a href="#ams" data-city="ams">AMS</a>
-    <a href="#anr" data-city="anr">ANR</a>
-    <a href="#gnt" data-city="gnt">GNT</a>
-    <a href="#bge" data-city="bge">BGE</a>
-    <a href="#bru" data-city="bru">BRU</a>
-    <a href="#par" data-city="par">PAR</a>
-  </nav>
+  <div class="topbar-row">
+    <div class="brand">EUROPA <span class="brand-dot">·</span> OUT 2026</div>
+    <nav class="sitenav" aria-label="Navegação principal">
+      <a href="index.html" class="active">Início</a>
+      <a href="roteiro.html">Roteiro</a>
+      <a href="voos.html">Voos e trens</a>
+      <a href="hospedagem.html">Onde ficamos</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
@@ -48,286 +32,49 @@
   <p class="hero-sub">Belo Horizonte → Lisboa → Amsterdã → Antuérpia → Ghent → Bruges → Bruxelas → Paris → Lisboa → Belo Horizonte</p>
 </section>
 
-<nav class="quicknav" aria-label="Atalhos do roteiro">
-  <a class="quicknav-tile" href="#ams">
+<nav class="quicknav" aria-label="Atalhos do site">
+  <a class="quicknav-tile" href="roteiro.html">
     <h3>O roteiro</h3>
-    <p>Amsterdã, Antuérpia, Ghent, Bruges, Bruxelas e Paris, cidade por cidade.</p>
+    <p>Amsterdã, Antuérpia, Ghent, Bruges, Bruxelas e Paris, cidade por cidade, dia a dia.</p>
     <span class="link-underline">Ver o roteiro ›</span>
   </a>
-  <a class="quicknav-tile" href="#voos">
-    <h3>Como chegamos</h3>
-    <p>Quatro voos e cinco trajetos de trem amarrando as seis cidades.</p>
-    <span class="link-underline">Voos e trens ›</span>
+  <a class="quicknav-tile" href="voos.html">
+    <h3>Voos e trens</h3>
+    <p>Quatro voos internacionais e seis trajetos de trem amarrando as seis cidades.</p>
+    <span class="link-underline">Ver voos e trens ›</span>
   </a>
-  <a class="quicknav-tile" href="#hospedagem">
+  <a class="quicknav-tile" href="hospedagem.html">
     <h3>Onde ficamos</h3>
     <p>Três hospedagens, do Hotel JL No76 ao Airbnb no 15º de Paris.</p>
-    <span class="link-underline">Hospedagens ›</span>
+    <span class="link-underline">Ver hospedagens ›</span>
   </a>
 </nav>
 
-<div class="statsband">
-  <p class="countdown" id="countdown">Calculando…</p>
-  <p class="stats-facts">14 dias em solo europeu · 6 cidades · 3 países · 5 viajantes</p>
-</div>
-
-<div class="scrolly">
-  <aside class="mapside">
-    <div class="mapside-current">
-      <span class="mapside-label">agora lendo</span>
-      <h3 id="mapCurrentCity">Toda a rota</h3>
-      <p id="mapCurrentDates">10 — 24 de outubro</p>
-    </div>
-    <div class="map-wrap">
-      <div id="map" role="img" aria-label="Mapa da rota da viagem pela Europa"></div>
-      <div class="map-legend">
-        <span><i class="leg-line leg-train"></i> trem</span>
-        <span><i class="leg-line leg-flight"></i> voo</span>
-      </div>
-    </div>
-  </aside>
-
-  <main id="main">
-
-    <!-- ============ AMSTERDAM ============ -->
-    <section class="city" id="ams" style="--accent: var(--accent-teal)">
-      <div class="city-head">
-        <div class="stamp">AMS</div>
-        <div class="city-title">
-          <h2>Amsterdã</h2>
-          <p class="city-dates">11 — 15 de outubro · Hotel JL No76</p>
-        </div>
-      </div>
-      <p class="city-intro">Base tranquila em Oud Zuid, perto do Museumplein. Quatro dias inteiros para museus, canais e bairros — sem pressa, com um bloco final dedicado ao centro histórico.</p>
-
-      <div class="day-grid">
-        <article class="day-card">
-          <header><span class="day-date">11/10</span><span class="day-tag">chegada</span></header>
-          <h3>Tarde livre</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-flight"/></svg> Chegada 12h50 · check-in a partir das 15h</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-walk"/></svg> Caminhada sem compromisso — sugestões de jantar:</li>
-            <li class="sub">Utrechtsestraat · De Pijp · Museumplein</li>
-          </ul>
-        </article>
-
-        <article class="day-card">
-          <header><span class="day-date">12/10</span></header>
-          <h3>Rijksmuseum + Vondelpark</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Manhã: Rijksmuseum</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-nature"/></svg> Tarde: Vondelpark — caminhada, corrida leve ou café no parque</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Noite: jantar em De Pijp</li>
-          </ul>
-        </article>
-
-        <article class="day-card">
-          <header><span class="day-date">13/10</span></header>
-          <h3>Anne Frank + Jordaan + Centro</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Manhã: Casa de Anne Frank <em>(ingresso com antecedência)</em></li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-walk"/></svg> Início da tarde: Jordaan, sem pressa</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Tarde: Praça Dam → Begijnhof → Mercado das Flores</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-drink"/></svg> Fim de tarde: brown café</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Jantar no centro</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-night"/></svg> Noite: Red Light District + coffee shop no trajeto</li>
-          </ul>
-        </article>
-
-        <article class="day-card">
-          <header><span class="day-date">14/10</span></header>
-          <h3>Van Gogh + Heineken</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Manhã: Van Gogh Museum</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-drink"/></svg> Tarde: Heineken Experience</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-night"/></svg> Noite livre — última noite em Amsterdã</li>
-          </ul>
-        </article>
-
-        <article class="day-card day-card--transit">
-          <header><span class="day-date">15/10</span><span class="day-tag">partida</span></header>
-          <h3>Rumo à Bélgica</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-bag"/></svg> Checkout antecipado (~9h) · malas no guarda-volumes</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-train"/></svg> Trem para Antuérpia (~2h25)</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ ANTUERPIA ============ -->
-    <section class="city" id="anr" style="--accent: var(--accent-gold)">
-      <div class="city-head">
-        <div class="stamp">ANR</div>
-        <div class="city-title">
-          <h2>Antuérpia</h2>
-          <p class="city-dates">15 de outubro · day trip a caminho de Ghent</p>
-        </div>
-      </div>
-      <p class="city-intro">Passagem rápida — chegada por volta de meio-dia, saída às 17h. Só o essencial do centro histórico, tudo caminhável num raio pequeno.</p>
-
-      <div class="day-grid day-grid--single">
-        <article class="day-card">
-          <header><span class="day-date">12h — 17h</span></header>
-          <h3>Centro histórico</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-train"/></svg> Chegada, malas no guarda-volumes da Antwerpen-Centraal</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Grote Markt</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Catedral de Nossa Senhora</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Vlaeykensgang — beco medieval</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Almoço na região</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Het Steen — fortificação, entrada gratuita, vista do rio</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-train"/></svg> 17h: trem para Ghent (~1h)</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ GANTE ============ -->
-    <section class="city" id="gnt" style="--accent: var(--accent-coral)">
-      <div class="city-head">
-        <div class="stamp">GNT</div>
-        <div class="city-title">
-          <h2>Ghent</h2>
-          <p class="city-dates">15 — 17 de outubro · Pillows Grand Boutique Hotel Reylof</p>
-        </div>
-      </div>
-      <p class="city-intro">Base para o day trip a Bruges. Cidade universitária, mais viva que Bruges — vale a noite de chegada com calma, sem tentar espremer um dia inteiro que a cidade não pede.</p>
-
-      <div class="day-grid day-grid--single">
-        <article class="day-card">
-          <header><span class="day-date">15/10, noite</span><span class="day-tag">chegada</span></header>
-          <h3>Graslei &amp; Korenlei</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-bag"/></svg> Check-in ~18h-18h30</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Graslei e Korenlei iluminados à noite — o cartão-postal da cidade</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Jantar na região</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-drink"/></svg> Vrijdagmarkt — praça mais animada, se sobrar energia</li>
-          </ul>
-        </article>
-      </div>
-      <p class="city-note">16/10 é dedicado inteiramente a Bruges (ver seção BGE). Na manhã do 17/10, direto de trem para Bruxelas.</p>
-    </section>
-
-    <!-- ============ BRUGES ============ -->
-    <section class="city" id="bge" style="--accent: var(--cocoa)">
-      <div class="city-head">
-        <div class="stamp">BGE</div>
-        <div class="city-title">
-          <h2>Bruges</h2>
-          <p class="city-dates">16 de outubro · day trip saindo de Ghent (25 min de trem)</p>
-        </div>
-      </div>
-      <p class="city-intro">Patrimônio Mundial da UNESCO — cidade medieval praticamente congelada no tempo. Dia inteiro, sem pressa, tudo caminhável.</p>
-
-      <div class="day-grid day-grid--single">
-        <article class="day-card">
-          <header><span class="day-date">dia inteiro</span></header>
-          <h3>Markt, canais e chocolate</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Markt — praça principal</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Belfort — 366 degraus, vista panorâmica</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Burg + Basílica do Sangue Sagrado</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-boat"/></svg> Passeio de barco pelos canais / Rozenhoedkaai</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Almoço</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Chocolaterias</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-walk"/></svg> Caminhada livre pelas ruas menos turísticas</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-train"/></svg> Trem de volta para Ghent ao fim da tarde</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ BRUXELAS ============ -->
-    <section class="city" id="bru" style="--accent: var(--slate)">
-      <div class="city-head">
-        <div class="stamp">BRU</div>
-        <div class="city-title">
-          <h2>Bruxelas</h2>
-          <p class="city-dates">17 de outubro · trem de Ghent (35 min) → trem para Paris (1h30) ao fim da tarde</p>
-        </div>
-      </div>
-      <p class="city-intro">Dia curto de passagem — capital belga e sede das instituições da UE. Foco no essencial do centro histórico antes de seguir viagem.</p>
-
-      <div class="day-grid day-grid--single">
-        <article class="day-card">
-          <header><span class="day-date">manhã — tarde</span></header>
-          <h3>Grand Place e centro histórico</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-bag"/></svg> Malas no locker da Bruxelas-Midi</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Grand Place</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Galeries Royales Saint-Hubert</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Manneken Pis — rápido, de passagem</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-food"/></svg> Almoço: waffle / fritas de rua</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-walk"/></svg> Caminhada livre pelo centro histórico</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-train"/></svg> Volta à Bruxelas-Midi → trem para Paris</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ PARIS ============ -->
-    <section class="city" id="par" style="--accent: var(--accent-coral)">
-      <div class="city-head">
-        <div class="stamp">PAR</div>
-        <div class="city-title">
-          <h2>Paris</h2>
-          <p class="city-dates">17 — 24 de outubro · Airbnb, 15º arrondissement</p>
-        </div>
-      </div>
-      <p class="city-intro">Seis noites — o trecho mais longo da viagem, com ritmo tranquilo. Roteiro dia a dia ainda <strong>em planejamento</strong>; por enquanto, os destaques já definidos:</p>
-
-      <div class="day-grid day-grid--single">
-        <article class="day-card day-card--pending">
-          <header><span class="day-date">18 — 23/10</span><span class="day-tag">em aberto</span></header>
-          <h3>Destaques confirmados até aqui</h3>
-          <ul class="items">
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Louvre e Musée d'Orsay (em dias separados)</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Torre Eiffel + Trocadéro ao entardecer</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Montmartre e Sacré-Cœur</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Le Marais</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-see"/></svg> Versalhes (day trip, meio dia)</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#ic-place"/></svg> Roland Garros — visita guiada ao complexo e museu</li>
-          </ul>
-        </article>
-      </div>
-      <p class="city-note">24/10 — voo Paris (Orly) → Lisboa → Belo Horizonte.</p>
-    </section>
-
-  </main>
-</div>
+<main id="main">
+  <div class="statsband">
+    <p class="countdown" id="countdown">Calculando…</p>
+    <p class="stats-facts">14 dias em solo europeu · 6 cidades · 3 países · Ronaldo, Isabela, Thiago, Lucas e Maju</p>
+  </div>
+</main>
 
 <footer class="footer">
   <div class="footer-grid">
-    <div id="voos">
-      <h4>Voos</h4>
-      <p>10/10 BH → Lisboa · TP0104 · 17h25–06h45</p>
-      <p>11/10 Lisboa → Amsterdã · TP0668 · 08h45–12h50</p>
-      <p>24/10 Paris (Orly) → Lisboa · TP0441 · 06h00–07h35</p>
-      <p>24/10 Lisboa → BH · TP0103 · 10h10–15h50</p>
-    </div>
-    <div id="hospedagem">
-      <h4>Hospedagem</h4>
-      <p>Amsterdã — Hotel JL No76</p>
-      <p>Ghent — Pillows Grand Boutique Hotel Reylof</p>
-      <p>Paris — Airbnb, 15º arrondissement</p>
+    <div>
+      <h4>Europa 2026</h4>
+      <p>Roteiro em construção — última atualização conforme a viagem se aproxima.</p>
     </div>
     <div>
-      <h4>Atalhos</h4>
+      <h4>Páginas</h4>
       <ul class="footer-nav">
-        <li><a href="#ams">Amsterdã</a></li>
-        <li><a href="#anr">Antuérpia</a></li>
-        <li><a href="#gnt">Ghent</a></li>
-        <li><a href="#bge">Bruges</a></li>
-        <li><a href="#bru">Bruxelas</a></li>
-        <li><a href="#par">Paris</a></li>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="roteiro.html">Roteiro</a></li>
+        <li><a href="voos.html">Voos e trens</a></li>
+        <li><a href="hospedagem.html">Onde ficamos</a></li>
       </ul>
     </div>
   </div>
-  <p class="footer-note">Roteiro em construção — última atualização conforme a viagem se aproxima.</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="js/script.js"></script>
+<script src="js/countdown.js"></script>
 </body>
 </html>

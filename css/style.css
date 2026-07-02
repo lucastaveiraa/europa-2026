@@ -59,11 +59,17 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 .skip-link:focus { top: 12px; }
 
-/* ---------- TOPBAR ---------- */
+/* ---------- TOPBAR ----------
+   The whole header (brand+sitenav row, plus the optional city subnav row
+   on the Roteiro page) is ONE sticky element, so the two rows always move
+   together and nothing needs a hardcoded pixel offset to stay aligned. */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 500;
+}
+
+.topbar-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,11 +89,18 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 }
 .brand-dot { color: var(--gold); }
 
+.sitenav,
 .citynav {
   display: flex;
   gap: 4px;
   overflow-x: auto;
 }
+.citynav {
+  background: var(--ink-soft);
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(246, 241, 228, 0.12);
+}
+.sitenav a,
 .citynav a {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -102,12 +115,17 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   align-items: center;
   transition: background 0.15s, color 0.15s;
 }
+.sitenav a:hover,
+.sitenav a:focus-visible,
 .citynav a:hover,
 .citynav a:focus-visible {
   background: var(--ink-soft);
   color: var(--paper);
   outline: none;
 }
+.citynav a:hover,
+.citynav a:focus-visible { background: rgba(246, 241, 228, 0.1); }
+.sitenav a.active,
 .citynav a.active {
   background: var(--gold);
   color: var(--ink);
@@ -149,6 +167,30 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   max-width: 640px;
   margin: 0 auto;
   line-height: 1.8;
+}
+
+/* ---------- PAGE HERO ----------
+   Compact header used on Roteiro / Voos e trens / Onde ficamos — same ink
+   family as .hero but no photo, since the full photo hero is the Início
+   landing page's one signature move, not something repeated on every page. */
+.page-hero {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 44px 24px 40px;
+  text-align: center;
+}
+.page-hero .eyebrow { margin-bottom: 12px; }
+.page-hero h1 {
+  font-weight: 600;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+.page-hero p {
+  font-size: 1rem;
+  color: var(--paper-dim);
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 /* ---------- QUICK-NAV BAND ---------- */
@@ -288,8 +330,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   .scrolly { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
   .mapside {
     position: sticky;
-    top: 88px;
-    height: calc(100vh - 120px);
+    top: 132px;
+    height: calc(100vh - 164px);
     display: flex;
     flex-direction: column;
   }
@@ -301,7 +343,7 @@ main { padding-top: 40px; }
 
 .city {
   padding: 0 0 56px;
-  scroll-margin-top: 96px;
+  scroll-margin-top: 132px;
 }
 .city:first-of-type { padding-top: 0; }
 
@@ -459,6 +501,128 @@ main { padding-top: 40px; }
   color: var(--accent);
 }
 
+/* ---------- PAGE SECTION (shared wrapper for Voos/Hospedagem content) ---------- */
+.page-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+.page-section + .page-section { padding-top: 0; }
+.page-section h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  margin: 0 0 8px;
+}
+.page-section .section-intro {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 0 0 28px;
+}
+
+/* ---------- TRANSIT LIST (voos.html) ---------- */
+.transit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.transit-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--paper-dim);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.transit-item .ic { width: 22px; height: 22px; margin-top: 3px; }
+.transit-body { flex: 1; min-width: 0; }
+.transit-route {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+}
+.transit-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0;
+}
+.transit-meta .code {
+  color: var(--accent);
+  font-weight: 700;
+}
+.transit-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 6px 0 0;
+}
+.transit-divider {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--paper-dim);
+  padding-bottom: 8px;
+  margin: 8px 0 -2px;
+}
+
+/* ---------- STAY CARDS (hospedagem.html) ---------- */
+.stay-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.stay-card {
+  background: #fff;
+  border: 1px solid var(--paper-dim);
+  border-top: 5px solid var(--accent);
+  border-radius: 12px;
+  padding: 28px 26px;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+.stay-card .stamp { width: 64px; height: 64px; font-size: 1.1rem; }
+.stay-card h3 { margin: 0 0 4px; font-size: 1.3rem; }
+.stay-address {
+  color: var(--text-muted);
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+}
+.stay-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.stay-meta div span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+.stay-nights {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--paper);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+@media (max-width: 560px) {
+  .stay-card { flex-direction: column; }
+}
+
 /* ---------- FOOTER ---------- */
 .footer {
   background: var(--ink);
@@ -550,8 +714,16 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 640px) {
-  .topbar { flex-wrap: wrap; }
+  .topbar-row { flex-wrap: wrap; }
+  /* the 4 primary nav items don't all fit on one line on narrow phones —
+     wrap them instead of relying on a hidden horizontal scroll, since
+     unlike the 6-item city subnav these are the main way to move around */
+  .sitenav { flex-wrap: wrap; overflow-x: visible; }
   .city-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   #map { height: 260px; }
   .quicknav-tile { padding: 28px 22px; }
+  .stay-meta { gap: 8px 18px; }
+  /* sitenav + citynav both wrap to extra lines on narrow phones, so the
+     sticky header grows taller than the desktop/tablet measurement */
+  .city { scroll-margin-top: 216px; }
 }
