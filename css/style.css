@@ -758,6 +758,7 @@ main { padding-top: 40px; }
 
 /* ---------- PER-CITY MAPS (roteiro.html) ---------- */
 .city-map-wrap {
+  position: relative;
   margin: 0 0 32px;
   border-radius: 12px;
   overflow: hidden;
@@ -765,6 +766,84 @@ main { padding-top: 40px; }
   max-width: 680px;
 }
 .city-map { height: 260px; width: 100%; background: var(--ink-soft); }
+
+/* ---------- MAP EXPAND BUTTON + MODAL ---------- */
+.map-expand-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 450;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(16, 27, 45, 0.85);
+  border: 2px solid var(--paper);
+  color: var(--paper);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.map-expand-btn:hover { background: var(--ink); }
+.map-expand-btn .ic { width: 16px; height: 16px; color: inherit; margin: 0; }
+
+.map-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(16, 27, 45, 0.86);
+}
+.map-modal.is-open { display: flex; }
+.map-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  height: min(80vh, 720px);
+  background: var(--paper);
+  border-radius: 14px;
+  border: 2px solid var(--ink-soft);
+  overflow: hidden;
+}
+.map-modal-map { width: 100%; height: 100%; background: var(--ink-soft); }
+.map-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.map-modal-close .ic { width: 18px; height: 18px; margin: 0; }
+.map-modal-title {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--paper);
+  background: rgba(16, 27, 45, 0.85);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+@media (max-width: 640px) {
+  .map-modal { padding: 12px; }
+  .map-modal-inner { height: min(85vh, 640px); }
+}
 
 .poi-marker-inner {
   font-family: var(--font-mono);

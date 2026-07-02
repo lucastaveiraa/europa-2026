@@ -28,6 +28,8 @@
   <symbol id="ic-night" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8.5 8.5 0 1 1 9.8 4a7 7 0 0 0 10.2 10.2z"/></symbol>
   <symbol id="ic-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M5 13h14"/></symbol>
   <symbol id="ic-boat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18l-2 5H5l-2-5z"/><path d="M6 15V9l6-4 6 4v6"/><path d="M9 9h6"/></symbol>
+  <symbol id="ic-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l14 14M19 5L5 19"/></symbol>
 </svg>
 
 <header class="topbar">
@@ -69,6 +71,9 @@
         <span><i class="leg-line leg-train"></i> trem</span>
         <span><i class="leg-line leg-flight"></i> voo</span>
       </div>
+      <button class="map-expand-btn" type="button" data-map="route" aria-label="Ampliar mapa da rota">
+        <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+      </button>
     </div>
   </aside>
 
@@ -87,6 +92,9 @@
 
       <div class="city-map-wrap">
         <div class="city-map" id="citymap-ams" role="img" aria-label="Mapa dos pontos de interesse em Amsterdã"></div>
+        <button class="map-expand-btn" type="button" data-map="ams" aria-label="Ampliar mapa de Amsterdã">
+          <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+        </button>
       </div>
 
       <div class="day-grid">
@@ -157,6 +165,9 @@
 
       <div class="city-map-wrap">
         <div class="city-map" id="citymap-anr" role="img" aria-label="Mapa dos pontos de interesse em Antuérpia"></div>
+        <button class="map-expand-btn" type="button" data-map="anr" aria-label="Ampliar mapa de Antuérpia">
+          <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+        </button>
       </div>
 
       <div class="day-grid day-grid--single">
@@ -189,6 +200,9 @@
 
       <div class="city-map-wrap">
         <div class="city-map" id="citymap-gnt" role="img" aria-label="Mapa dos pontos de interesse em Ghent"></div>
+        <button class="map-expand-btn" type="button" data-map="gnt" aria-label="Ampliar mapa de Ghent">
+          <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+        </button>
       </div>
 
       <div class="day-grid day-grid--single">
@@ -219,6 +233,9 @@
 
       <div class="city-map-wrap">
         <div class="city-map" id="citymap-bge" role="img" aria-label="Mapa dos pontos de interesse em Bruges"></div>
+        <button class="map-expand-btn" type="button" data-map="bge" aria-label="Ampliar mapa de Bruges">
+          <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+        </button>
       </div>
 
       <div class="day-grid day-grid--single">
@@ -252,6 +269,9 @@
 
       <div class="city-map-wrap">
         <div class="city-map" id="citymap-bru" role="img" aria-label="Mapa dos pontos de interesse em Bruxelas"></div>
+        <button class="map-expand-btn" type="button" data-map="bru" aria-label="Ampliar mapa de Bruxelas">
+          <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+        </button>
       </div>
 
       <div class="day-grid day-grid--single">
@@ -284,6 +304,9 @@
 
       <div class="city-map-wrap">
         <div class="city-map" id="citymap-par" role="img" aria-label="Mapa dos destaques confirmados em Paris"></div>
+        <button class="map-expand-btn" type="button" data-map="par" aria-label="Ampliar mapa de Paris">
+          <svg class="ic" aria-hidden="true"><use href="#ic-expand"/></svg>
+        </button>
       </div>
 
       <div class="day-grid day-grid--single">
@@ -335,8 +358,19 @@
   </div>
 </footer>
 
+<div class="map-modal" id="mapModal" aria-hidden="true">
+  <div class="map-modal-inner">
+    <span class="map-modal-title" id="mapModalTitle"></span>
+    <button class="map-modal-close" type="button" id="mapModalClose" aria-label="Fechar mapa ampliado">
+      <svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg>
+    </button>
+    <div class="map-modal-map" id="mapModalMap"></div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/map.js"></script>
 <script src="js/citymaps.js"></script>
+<script src="js/mapmodal.js"></script>
 </body>
 </html>
