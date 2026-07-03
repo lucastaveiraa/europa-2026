@@ -765,11 +765,16 @@ main { padding-top: 40px; }
   padding: 48px 24px 32px;
 }
 .footer-grid {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr 1fr 2fr;
   gap: 32px;
+}
+.footer-grid--4col { grid-template-columns: 1fr 1fr 1fr 2fr; }
+@media (max-width: 860px) {
+  .footer-grid,
+  .footer-grid--4col { grid-template-columns: 1fr; }
 }
 .footer h4 {
   font-family: var(--font-mono);
@@ -803,10 +808,7 @@ main { padding-top: 40px; }
 .footer-nav a:focus-visible { color: var(--paper); }
 
 .footer-suggest {
-  max-width: 1000px;
-  margin: 40px auto 0;
-  padding-top: 32px;
-  border-top: 1px solid var(--ink-soft);
+  min-width: 0;
 }
 .footer-suggest h4 {
   font-family: var(--font-mono);
@@ -825,20 +827,28 @@ main { padding-top: 40px; }
 }
 .suggest-form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  max-width: 560px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  max-width: 760px;
 }
 .suggest-form input,
 .suggest-form textarea {
-  width: 100%;
   background: var(--ink-soft);
   border: 1px solid rgba(246, 241, 228, 0.18);
   border-radius: 8px;
   color: var(--paper);
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  padding: 10px 12px;
+  font-size: 0.85rem;
+  padding: 10px;
+  min-width: 0;
+}
+.suggest-form input[type="text"] {
+  flex: 1 1 0;
+}
+.suggest-form textarea {
+  flex: 2 1 0;
+  height: 72px;
   resize: vertical;
 }
 .suggest-form input::placeholder,
@@ -849,7 +859,7 @@ main { padding-top: 40px; }
   outline-offset: 1px;
 }
 .suggest-submit {
-  align-self: flex-start;
+  flex: 0 0 auto;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
@@ -858,8 +868,15 @@ main { padding-top: 40px; }
   background: var(--gold);
   border: none;
   border-radius: 8px;
-  padding: 11px 20px;
+  padding: 11px 14px;
   cursor: pointer;
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .suggest-form { gap: 6px; }
+  .suggest-form input,
+  .suggest-form textarea { font-size: 0.78rem; padding: 8px; }
+  .suggest-submit { padding: 8px 10px; font-size: 0.7rem; }
 }
 .suggest-submit:hover { background: #f0bc3d; }
 .suggest-status {
