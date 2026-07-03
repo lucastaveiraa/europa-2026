@@ -1,6 +1,7 @@
 :root {
   --ink: #1f2a44;
   --ink-soft: #2d3b5e;
+  --ink-light: #3a4a70;
   --paper: #ede3cf;
   --paper-dim: #e1d3b3;
   --teal: #3f5c4c;
@@ -169,6 +170,64 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   line-height: 1.8;
 }
 
+/* ---------- ROUTE TIMELINE (hero) ---------- */
+.route-timeline {
+  position: relative;
+  display: flex;
+  list-style: none;
+  margin: 32px auto 0;
+  padding: 0;
+  max-width: 860px;
+  gap: 2px;
+}
+.route-timeline::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: rgba(246, 241, 228, 0.22);
+  z-index: 0;
+}
+.route-timeline li {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 8px;
+}
+.route-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+.route-city {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  color: var(--paper-dim);
+  text-align: center;
+  line-height: 1.25;
+}
+@media (max-width: 640px) {
+  .route-timeline {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .route-timeline::before { left: 6px; right: 6px; }
+  .route-timeline li { flex: 0 0 74px; }
+  .route-city { white-space: nowrap; font-size: 0.62rem; }
+}
+
 /* ---------- PAGE HERO ----------
    Compact header used on Roteiro / Voos e trens / Onde ficamos — same ink
    family as .hero but no photo, since the full photo hero is the Início
@@ -209,9 +268,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   flex-direction: column;
   gap: 10px;
 }
-.quicknav-tile:nth-child(1) { background: var(--accent-teal); }
-.quicknav-tile:nth-child(2) { background: var(--cocoa); }
-.quicknav-tile:nth-child(3) { background: var(--slate); }
+.quicknav-tile:nth-child(1) { background: var(--ink); }
+.quicknav-tile:nth-child(2) { background: var(--ink-soft); }
+.quicknav-tile:nth-child(3) { background: var(--ink-light); }
+.quicknav-tile-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.quicknav-tile-icon svg { width: 100%; height: 100%; }
 .quicknav-tile h3 {
   margin: 0;
   font-size: 1.3rem;
@@ -221,7 +287,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   margin: 0;
   font-size: 0.92rem;
   max-width: 32ch;
+  color: var(--paper-dim);
 }
+.quicknav-tile .link-underline { color: var(--gold); }
 
 .link-underline {
   display: inline-block;
@@ -239,7 +307,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 
 /* ---------- COUNTDOWN / STATS BAND ---------- */
 .statsband {
-  background: var(--paper-dim);
+  background: var(--ink-soft);
   text-align: center;
   padding: 36px 24px;
 }
@@ -247,16 +315,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   font-weight: 700;
   font-size: clamp(1.3rem, 3vw, 1.9rem);
   margin: 0 0 10px;
-  color: var(--text-dark);
+  color: var(--paper);
 }
 .statsband .countdown strong {
-  color: var(--accent-coral);
+  color: var(--gold);
   font-size: 1.15em;
 }
 .statsband .stats-facts {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--paper-dim);
   letter-spacing: 0.02em;
   margin: 0;
 }
