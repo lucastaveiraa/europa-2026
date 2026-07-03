@@ -336,56 +336,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   padding: 0 24px;
 }
 
-.mapside {
-  padding-top: 40px;
-}
-
-.map-wrap {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid var(--ink-soft);
-  position: relative;
-}
-#map {
-  height: 320px;
-  width: 100%;
-  background: var(--ink-soft);
-}
-.map-legend {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(16, 27, 45, 0.88);
-  padding: 8px 14px;
-  border-radius: 6px;
-  display: flex;
-  gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--paper);
-  z-index: 400;
-}
-.map-legend span { display: flex; align-items: center; gap: 6px; }
-.leg-line { width: 22px; height: 2px; display: inline-block; }
-.leg-train { background: var(--gold); }
-.leg-flight {
-  background: repeating-linear-gradient(90deg, var(--coral) 0 4px, transparent 4px 8px);
-}
-
-@media (min-width: 1024px) {
-  .scrolly { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: start; }
-  .mapside {
-    position: sticky;
-    top: 132px;
-    height: calc(100vh - 164px);
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-  }
-  .map-wrap { flex: 1; min-height: 260px; min-width: 0; }
-  #map { height: 100%; }
-}
-
 /* ---------- CITY SECTIONS ---------- */
 main { padding-top: 40px; }
 
@@ -943,27 +893,6 @@ main { padding-top: 40px; }
 }
 
 /* ---------- LEAFLET OVERRIDES ---------- */
-.city-marker {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.7rem;
-  color: var(--ink);
-  background: var(--gold);
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.city-marker.is-active {
-  transform: scale(1.3);
-  box-shadow: 0 0 0 5px rgba(246, 241, 228, 0.35);
-  z-index: 1000 !important;
-}
 .leaflet-container { font-family: var(--font-body); background: var(--ink-soft) !important; }
 
 /* ---------- PER-CITY MAPS (roteiro.html) ---------- */

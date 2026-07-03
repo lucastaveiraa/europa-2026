@@ -1,9 +1,9 @@
-// Expand/collapse modal for the Roteiro maps. Reuses the same route and
-// per-city POI data already defined in map.js / citymaps.js (loaded first,
-// so their top-level consts are visible here), but builds a *fresh*
-// Leaflet instance each time the modal opens — Leaflet can't reliably
-// measure a container that was hidden (display:none) at init time, and
-// re-using one instance across different maps gets messy fast.
+// Expand/collapse modal for the Roteiro per-city maps. Reuses the POI
+// data already defined in citymaps.js (loaded first, so its top-level
+// consts are visible here), but builds a *fresh* Leaflet instance each
+// time the modal opens — Leaflet can't reliably measure a container that
+// was hidden (display:none) at init time, and re-using one instance
+// across different maps gets messy fast.
 (function () {
   const modal = document.getElementById("mapModal");
   const modalMapEl = document.getElementById("mapModalMap");
@@ -18,47 +18,6 @@
       modalMap.remove();
       modalMap = null;
     }
-  }
-
-  function buildRouteMap() {
-    const m = L.map(modalMapEl, { scrollWheelZoom: true, zoomControl: true }).setView([50.5, 3.8], 6);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: "&copy; OpenStreetMap &copy; CARTO",
-      maxZoom: 20,
-    }).addTo(m);
-
-    trainLegs.forEach(([a, b]) => {
-      const from = cities.find((c) => c.code === a);
-      const to = cities.find((c) => c.code === b);
-      L.polyline(
-        [
-          [from.lat, from.lng],
-          [to.lat, to.lng],
-        ],
-        { color: "#8e680b", weight: 2, opacity: 0.6 }
-      ).addTo(m);
-    });
-
-    flightLegs.forEach(([a, b]) => {
-      const from = cities.find((c) => c.code === a);
-      const to = cities.find((c) => c.code === b);
-      L.polyline(
-        [
-          [from.lat, from.lng],
-          [to.lat, to.lng],
-        ],
-        { color: "#c32117", weight: 2.5, opacity: 0.85, dashArray: "2 8" }
-      ).addTo(m);
-    });
-
-    cities.forEach((c) => {
-      const icon = L.divIcon({ className: "city-marker", html: c.code, iconSize: [30, 30] });
-      L.marker([c.lat, c.lng], { icon }).addTo(m).bindTooltip(c.name, { permanent: false, direction: "top" });
-    });
-
-    const bounds = L.latLngBounds(cities.map((c) => [c.lat, c.lng]));
-    m.fitBounds(bounds, { padding: [30, 30] });
-    return m;
   }
 
   function buildCityMap(code) {
@@ -107,7 +66,6 @@
   }
 
   const mapTitles = {
-    route: "Rota completa",
     ams: "Amsterdã",
     anr: "Antuérpia",
     gnt: "Ghent",
@@ -126,7 +84,7 @@
     // Leaflet forces a synchronous layout read the moment it measures the
     // container, so no need to wait for a paint/animation frame here.
     destroyModalMap();
-    modalMap = mapKey === "route" ? buildRouteMap() : buildCityMap(mapKey);
+    modalMap = buildCityMap(mapKey);
   }
 
   function closeModal() {
