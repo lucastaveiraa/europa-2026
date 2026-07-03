@@ -1,23 +1,23 @@
 :root {
-  --ink: #101b2d;
-  --ink-soft: #1b2c44;
-  --paper: #f6f1e4;
-  --paper-dim: #ece4d0;
-  --teal: #178a82;
-  --gold: #e3a712;
-  --coral: #e8483f;
-  --cocoa: #7b4b33;
-  --slate: #3d5a80;
-  --text-dark: #142433;
-  --text-muted: #56667a;
-  --text-muted-dark: #71849c;
+  --ink: #1f2a44;
+  --ink-soft: #2d3b5e;
+  --paper: #ede3cf;
+  --paper-dim: #e1d3b3;
+  --teal: #3f5c4c;
+  --gold: #c9a66b;
+  --coral: #a8412e;
+  --cocoa: #6b4a35;
+  --slate: #3b4a63;
+  --text-dark: #232d40;
+  --text-muted: #6b6350;
+  --text-muted-dark: #c0ac82;
 
   /* AA-safe (4.5:1+) variants of teal/gold/coral for text, icons and
      borders on light backgrounds — the brand hues above are too light
      for that once used as text, so city sections use these instead. */
-  --accent-teal: #147972;
-  --accent-gold: #8e680b;
-  --accent-coral: #c32117;
+  --accent-teal: #33493d;
+  --accent-gold: #7a5c1a;
+  --accent-coral: #7c3a2a;
 
   --font-display: "Fraunces", serif;
   --font-body: "Inter", sans-serif;
