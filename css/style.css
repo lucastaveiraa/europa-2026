@@ -339,28 +339,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 .mapside {
   padding-top: 40px;
 }
-.mapside-current { margin-bottom: 14px; }
-.mapside-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.mapside-current h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: var(--text-dark);
-  transition: color 0.2s;
-}
-.mapside-current p {
-  margin: 2px 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
 
 .map-wrap {
   border-radius: 12px;

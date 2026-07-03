@@ -131,15 +131,6 @@ function setActiveCity(code) {
       layer.setStyle({ opacity: 0.3, weight: 1.5 });
     }
   });
-
-  // update the "agora lendo" panel next to the map
-  const section = document.getElementById(code.toLowerCase());
-  if (section) {
-    const name = section.querySelector("h2")?.textContent ?? "";
-    const dates = section.querySelector(".city-dates")?.textContent ?? "";
-    document.getElementById("mapCurrentCity").textContent = name;
-    document.getElementById("mapCurrentDates").textContent = dates;
-  }
 }
 
 // ---------- Active nav highlighting + map sync on scroll ----------
