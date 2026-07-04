@@ -17,16 +17,16 @@ const cityMapData = {
       { name: "Bloemenmarkt", lat: 52.3673, lng: 4.8917 },
       { name: "Red Light District", lat: 52.3731, lng: 4.8994 },
       { name: "Van Gogh Museum", lat: 52.3584, lng: 4.8811 },
-      { name: "Heineken Experience", lat: 52.3564, lng: 4.8917 },
+      { name: "Heineken Experience", lat: 52.3578, lng: 4.8918 },
     ],
   },
   anr: {
     accent: "#8e680b",
     points: [
       { name: "Grote Markt", lat: 51.2208, lng: 4.3997 },
-      { name: "Catedral de Nossa Senhora", lat: 51.2213, lng: 4.4014 },
-      { name: "Vlaeykensgang", lat: 51.2202, lng: 4.4012 },
-      { name: "Het Steen", lat: 51.2249, lng: 4.398 },
+      { name: "Catedral de Nossa Senhora", lat: 51.2203, lng: 4.4014 },
+      { name: "Vlaeykensgang", lat: 51.2202, lng: 4.3995 },
+      { name: "Het Steen", lat: 51.2228, lng: 4.3974 },
     ],
   },
   gnt: {
@@ -34,7 +34,7 @@ const cityMapData = {
     hotel: { name: "Pillows Grand Boutique Hotel Reylof", lat: 51.0548, lng: 3.7151 },
     points: [
       { name: "Graslei & Korenlei", lat: 51.0548, lng: 3.7208 },
-      { name: "Vrijdagmarkt", lat: 51.0537, lng: 3.7255 },
+      { name: "Vrijdagmarkt", lat: 51.0567, lng: 3.7253 },
     ],
   },
   bge: {
@@ -66,7 +66,7 @@ const cityMapData = {
       { name: "Sacré-Cœur", lat: 48.8867, lng: 2.3431 },
       { name: "Le Marais", lat: 48.8555, lng: 2.3652 },
       { name: "Versalhes", lat: 48.8049, lng: 2.1204 },
-      { name: "Roland Garros", lat: 48.8471, lng: 2.2532 },
+      { name: "Roland Garros", lat: 48.8469, lng: 2.2484 },
     ],
   },
 };
