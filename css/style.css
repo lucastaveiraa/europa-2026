@@ -4,9 +4,7 @@
   --ink-light: #3a4a70;
   --paper: #ede3cf;
   --paper-dim: #e1d3b3;
-  --teal: #3f5c4c;
   --gold: #c9a66b;
-  --coral: #a8412e;
   --cocoa: #6b4a35;
   --slate: #3b4a63;
   --text-dark: #232d40;
@@ -161,15 +159,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
   line-height: 1.15;
   margin: 0 0 20px;
 }
-.hero-sub {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--paper-dim);
-  max-width: 640px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-
 /* ---------- ROUTE TIMELINE (hero) ---------- */
 .route-timeline {
   position: relative;
@@ -527,12 +516,6 @@ main { padding-top: 40px; }
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   margin: 0 0 8px;
 }
-.page-section .section-intro {
-  color: var(--text-muted);
-  max-width: 60ch;
-  margin: 0 0 28px;
-}
-
 /* ---------- TRANSIT TIMELINE (deslocamentos.html) ----------
    A single connected rail down the left with every flight/train in
    chronological order — no grouping by type, just a running story of
@@ -882,16 +865,6 @@ main { padding-top: 40px; }
   width: 100%;
 }
 
-.footer-note {
-  max-width: 1000px;
-  margin: 32px auto 0;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted-dark);
-  border-top: 1px solid var(--ink-soft);
-  padding-top: 16px;
-}
-
 /* ---------- LEAFLET OVERRIDES ---------- */
 .leaflet-container { font-family: var(--font-body); background: var(--ink-soft) !important; }
 
@@ -1095,7 +1068,6 @@ a:focus-visible, button:focus-visible {
      unlike the 6-item city subnav these are the main way to move around */
   .sitenav { flex-wrap: wrap; overflow-x: visible; }
   .city-head { flex-direction: column; align-items: flex-start; gap: 12px; }
-  #map { height: 260px; }
   .quicknav-tile { padding: 28px 22px; }
   .stay-meta { gap: 8px 18px; }
   /* sitenav + citynav both wrap to extra lines on narrow phones, so the
