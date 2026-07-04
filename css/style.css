@@ -61,11 +61,14 @@ h1, h2, h3, h4 { font-family: var(--font-display); }
 /* ---------- TOPBAR ----------
    The whole header (brand+sitenav row, plus the optional city subnav row
    on the Roteiro page) is ONE sticky element, so the two rows always move
-   together and nothing needs a hardcoded pixel offset to stay aligned. */
+   together and nothing needs a hardcoded pixel offset to stay aligned.
+   z-index must beat Leaflet's own .leaflet-top/.leaflet-bottom (1000 in
+   leaflet.css) — otherwise a city map's zoom control renders on top of
+   the sticky header instead of scrolling behind it. */
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 500;
+  z-index: 1001;
 }
 
 .topbar-row {
