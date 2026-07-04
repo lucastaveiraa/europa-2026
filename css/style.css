@@ -461,23 +461,6 @@ main { padding-top: 40px; }
   padding: 2px 8px;
   border-radius: 20px;
 }
-.day-detail-btn {
-  margin-left: auto;
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  border: 1px solid var(--paper-dim);
-  background: var(--paper);
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.day-detail-btn:hover { background: var(--paper-dim); }
-.day-detail-btn .ic { width: 14px; height: 14px; margin: 0; color: inherit; }
-
 .day-card h3 {
   font-size: 1.15rem;
   margin: 0 0 12px;
@@ -508,7 +491,8 @@ main { padding-top: 40px; }
   color: var(--accent);
 }
 
-.poi-photo-link {
+.poi-photo-link,
+.poi-info-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -517,19 +501,29 @@ main { padding-top: 40px; }
   height: 22px;
   margin: -2px 0;
   border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
   color: var(--text-muted);
 }
-.poi-photo-link .ic {
+.poi-photo-link .ic,
+.poi-info-btn .ic {
   width: 14px;
   height: 14px;
   margin-top: 0;
   color: inherit;
 }
 .poi-photo-link:hover,
-.poi-photo-link:focus-visible {
+.poi-photo-link:focus-visible,
+.poi-info-btn:hover,
+.poi-info-btn:focus-visible {
   color: var(--accent);
   background: rgba(0, 0, 0, 0.06);
 }
+/* the info button is the primary "click for details" affordance, so it
+   carries the accent color by default rather than waiting for hover —
+   the numbered pin badge alone was too easy to miss. */
+.poi-info-btn { color: var(--accent); }
 
 /* ---------- PAGE SECTION (shared wrapper for Voos/Hospedagem content) ---------- */
 .page-section {
