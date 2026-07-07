@@ -232,14 +232,63 @@ const poiDetailsData = {
       linkBlock("Mais informações", "https://visit.brussels/en/place/Manneken-Pis"),
     ],
   },
+  "eiffel-tower": {
+    title: "Torre Eiffel",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Eiffel+Tower+Paris",
+    blocks: [
+      { label: "Sobre", text: "Vista a partir do Champ de Mars, a poucos minutos a pé do apartamento — um ótimo primeiro contato com a cidade na noite de chegada, com a torre iluminada." },
+      linkBlock("Site oficial", "https://www.toureiffel.paris/en"),
+    ],
+  },
+  "museu-rodin": {
+    title: "Museu Rodin",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Musee+Rodin+Paris",
+    blocks: [
+      { label: "Sobre", text: "Museu e jardim de esculturas ao ar livre, a cinco minutos do apartamento. O jardim por si só já vale a visita — bom equilíbrio entre cultura e espaço aberto." },
+      linkBlock("Site oficial", "https://www.musee-rodin.fr/en"),
+    ],
+  },
+  "les-invalides": {
+    title: "Les Invalides",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Les+Invalides+Paris",
+    blocks: [
+      { label: "Sobre", text: "Esplanada e fachada dourada do Hôtel des Invalides — Napoleão está sepultado ali, para quem quiser entrar no Museu do Exército." },
+      linkBlock("Site oficial", "https://www.musee-armee.fr/en/home.html"),
+    ],
+  },
   louvre: {
     title: "Louvre",
     dates: "Paris",
     accent: PAR_ACCENT,
     photoUrl: "https://www.google.com/search?tbm=isch&q=Louvre+Paris",
     blocks: [
-      { label: "Sobre", text: "Maior museu do mundo. Reservar dia inteiro ou manhã completa; ingresso com horário obrigatório." },
+      { label: "Sobre", text: "Maior museu do mundo. Fechado às terças — por isso reservado pra segunda-feira. Vale comprar ingresso com horário marcado com antecedência." },
       linkBlock("Site oficial", "https://www.louvre.fr/en"),
+    ],
+  },
+  "jardin-tuileries": {
+    title: "Jardin des Tuileries",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Jardin+des+Tuileries+Paris",
+    blocks: [
+      { label: "Sobre", text: "Jardim clássico entre o Louvre e a Place de la Concorde. Dali dá pra seguir até a Place Vendôme e a Rue de Rivoli, pra vitrines e compras." },
+    ],
+  },
+  "rue-lombards": {
+    title: "Rue des Lombards",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Rue+des+Lombards+Paris",
+    blocks: [
+      { label: "Sobre", text: "A rua concentra os clubes de jazz mais conhecidos de Paris: o Duc des Lombards (piano de cauda, ambiente intimista) e o Sunset/Sunside logo ao lado. Vale reservar online, principalmente sexta ou sábado." },
+      linkBlock("Site do Duc des Lombards", "https://ducdeslombards.com/en/about-us"),
     ],
   },
   "musee-dorsay": {
@@ -248,27 +297,8 @@ const poiDetailsData = {
     accent: PAR_ACCENT,
     photoUrl: "https://www.google.com/search?tbm=isch&q=Musee+d%27Orsay+Paris",
     blocks: [
-      { label: "Sobre", text: "Acervo mais compacto, focado em impressionistas — 2-3h bastam. Fazer em dia separado do Louvre evita fadiga de museu." },
+      { label: "Sobre", text: "Acervo impressionista numa antiga estação de trem. Fechado às segundas — por isso reservado pra terça, o mesmo dia em que o Louvre está fechado." },
       linkBlock("Site oficial", "https://www.musee-orsay.fr/en"),
-    ],
-  },
-  "eiffel-tower": {
-    title: "Torre Eiffel",
-    dates: "Paris",
-    accent: PAR_ACCENT,
-    photoUrl: "https://www.google.com/search?tbm=isch&q=Eiffel+Tower+Paris",
-    blocks: [
-      { label: "Sobre", text: "Torre símbolo de Paris. Subir é opcional e exige ingresso com antecedência." },
-      linkBlock("Site oficial", "https://www.toureiffel.paris/en"),
-    ],
-  },
-  trocadero: {
-    title: "Trocadéro",
-    dates: "Paris",
-    accent: PAR_ACCENT,
-    photoUrl: "https://www.google.com/search?tbm=isch&q=Trocadero+Paris",
-    blocks: [
-      { label: "Sobre", text: "Mirante clássico pra fotografar a Torre Eiffel inteira, especialmente ao entardecer, quando as luzes acendem de hora em hora." },
     ],
   },
   montmartre: {
@@ -277,7 +307,7 @@ const poiDetailsData = {
     accent: PAR_ACCENT,
     photoUrl: "https://www.google.com/search?tbm=isch&q=Montmartre+Paris",
     blocks: [
-      { label: "Sobre", text: "Bairro de ladeiras, ateliês de artistas na Place du Tertre. Reserve a tarde toda — é pra caminhar sem pressa." },
+      { label: "Sobre", text: "Subida por vielas de paralelepípedo até a Place du Tertre, com os pintores de rua — um bom trecho de caminhada, combina com o gosto do grupo por atividades outdoor." },
     ],
   },
   "sacre-coeur": {
@@ -290,33 +320,62 @@ const poiDetailsData = {
       linkBlock("Site oficial", "https://www.sacre-coeur-montmartre.com/"),
     ],
   },
-  "le-marais": {
-    title: "Le Marais",
-    dates: "Paris",
-    accent: PAR_ACCENT,
-    photoUrl: "https://www.google.com/search?tbm=isch&q=Le+Marais+Paris",
-    blocks: [
-      { label: "Sobre", text: "Bairro histórico judeu, hoje também polo LGBTQ+ e de moda independente — boas opções de falafel, brechós e cafés." },
-    ],
-  },
   versailles: {
     title: "Versalhes",
     dates: "Paris",
     accent: PAR_ACCENT,
     photoUrl: "https://www.google.com/search?tbm=isch&q=Palace+of+Versailles+Paris",
     blocks: [
-      { label: "Sobre", text: "Meio dia de day trip (30 min de RER a partir de Paris). Priorizar os Jardins + Galeria dos Espelhos; o Petit Trianon fica mais distante e consome tempo extra." },
+      { label: "Sobre", text: "Dia inteiro de trem (RER C, ~40min do centro). Além do Palácio e do Salão dos Espelhos, reservem tempo pros Jardins — Grand Trianon, Petit Trianon e Hameau de la Reine rendem horas de caminhada. Uma volta completa passa de 10km, vale um tênis confortável." },
       linkBlock("Site oficial", "https://en.chateauversailles.fr/"),
     ],
   },
-  "roland-garros": {
-    title: "Roland Garros",
+  "notre-dame": {
+    title: "Notre-Dame",
     dates: "Paris",
     accent: PAR_ACCENT,
-    photoUrl: "https://www.google.com/search?tbm=isch&q=Roland+Garros+Paris",
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Notre-Dame+Cathedral+Paris",
     blocks: [
-      { label: "Sobre", text: "Visita guiada ao complexo e museu do torneio — bom programa pra quem acompanha tênis, fora de temporada de Grand Slam (outubro está fora do calendário do torneio)." },
-      linkBlock("Site oficial", "https://www.rolandgarros.com/en-us/museum"),
+      { label: "Sobre", text: "Visita externa à catedral (e ao interior, se já reaberto em 2026) e à Sainte-Chapelle, com seus vitrais. Combina bem com uma caminhada pela Île Saint-Louis — parada certa pra um sorvete na Berthillon." },
+      linkBlock("Site oficial", "https://www.notredamedeparis.fr/en/"),
+    ],
+  },
+  "le-marais": {
+    title: "Le Marais",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Le+Marais+Paris",
+    blocks: [
+      { label: "Sobre", text: "Place des Vosges, ruas de boutiques e galerias, arquitetura histórica — bom lugar pra uma pausa de café à tarde." },
+    ],
+  },
+  "caveau-huchette": {
+    title: "Caveau de la Huchette",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Caveau+de+la+Huchette+Paris",
+    blocks: [
+      { label: "Sobre", text: "Clube de jazz e swing em porão medieval, aberto desde 1949, com pista de dança. Mais concorrido e turístico que o Duc des Lombards, mas o clima histórico e a dança agradam grupos com faixas etárias variadas." },
+      linkBlock("Site oficial", "https://www.caveaudelahuchette.fr/"),
+    ],
+  },
+  "jardin-luxembourg": {
+    title: "Jardin du Luxembourg",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Jardin+du+Luxembourg+Paris",
+    blocks: [
+      { label: "Sobre", text: "Um dos parques mais bonitos de Paris pra atividade física ao ar livre, com pista de corrida bem demarcada. Pertinho de Saint-Germain-des-Prés." },
+    ],
+  },
+  "cafe-de-flore": {
+    title: "Café de Flore",
+    dates: "Paris",
+    accent: PAR_ACCENT,
+    photoUrl: "https://www.google.com/search?tbm=isch&q=Cafe+de+Flore+Paris",
+    blocks: [
+      { label: "Sobre", text: "Um dos cafés históricos de Saint-Germain, ao lado do Les Deux Magots — tradição literária parisiense, mais pelo clima do que pelo preço." },
+      linkBlock("Site oficial", "https://cafedeflore.fr/en/"),
     ],
   },
 };
