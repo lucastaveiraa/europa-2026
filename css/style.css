@@ -1222,6 +1222,13 @@ main { padding-top: 40px; }
   border: 2px solid var(--gold);
   box-shadow: 0 1px 4px rgba(16, 27, 45, 0.55);
 }
+.poi-marker-inner--station {
+  width: 28px;
+  height: 28px;
+  background: var(--slate);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(16, 27, 45, 0.55);
+}
 
 .poi-num {
   display: inline-flex;

@@ -2,6 +2,8 @@
 // to match the "poi-num" badges next to the matching day-card list items.
 const hotelIconSvg =
   '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>';
+const stationIconSvg =
+  '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"/><path d="M5 10h14"/><path d="M9 13h.01M15 13h.01"/><path d="M8 16l-2 4M16 16l2 4"/></svg>';
 
 const cityMapData = {
   ams: {
@@ -39,6 +41,7 @@ const cityMapData = {
   },
   bge: {
     accent: "#7b4b33",
+    station: { name: "Estação de Bruges", lat: 51.197, lng: 3.2172 },
     points: [
       { name: "Markt", lat: 51.2085, lng: 3.2247 },
       { name: "Belfort", lat: 51.2081, lng: 3.2247 },
@@ -48,6 +51,7 @@ const cityMapData = {
   },
   bru: {
     accent: "#3d5a80",
+    station: { name: "Bruxelas-Midi / Zuid", lat: 50.8357, lng: 4.336 },
     points: [
       { name: "Grand Place", lat: 50.8467, lng: 4.3525 },
       { name: "Galeries Royales Saint-Hubert", lat: 50.8482, lng: 4.355 },
@@ -79,7 +83,7 @@ const cityMapData = {
 
 const cityMapInstances = [];
 
-Object.entries(cityMapData).forEach(([code, { accent, points, hotel }]) => {
+Object.entries(cityMapData).forEach(([code, { accent, points, hotel, station }]) => {
   const el = document.getElementById(`citymap-${code}`);
   if (!el || !points.length) return;
 
@@ -117,6 +121,18 @@ Object.entries(cityMapData).forEach(([code, { accent, points, hotel }]) => {
       .addTo(map)
       .bindTooltip(`${hotel.name} (hospedagem)`, { permanent: false, direction: "top" });
     boundsPoints.push([hotel.lat, hotel.lng]);
+  }
+
+  if (station) {
+    const stationIcon = L.divIcon({
+      className: "poi-marker",
+      html: `<div class="poi-marker-inner poi-marker-inner--station">${stationIconSvg}</div>`,
+      iconSize: [28, 28],
+    });
+    L.marker([station.lat, station.lng], { icon: stationIcon })
+      .addTo(map)
+      .bindTooltip(`${station.name} (estação)`, { permanent: false, direction: "top" });
+    boundsPoints.push([station.lat, station.lng]);
   }
 
   const bounds = L.latLngBounds(boundsPoints);

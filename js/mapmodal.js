@@ -27,7 +27,7 @@
   function buildCityMap(code) {
     const data = cityMapData[code];
     if (!data) return null;
-    const { accent, points, hotel } = data;
+    const { accent, points, hotel, station } = data;
 
     const m = L.map(modalMapEl, { scrollWheelZoom: true, zoomControl: true }).setView(
       [points[0].lat, points[0].lng],
@@ -62,6 +62,18 @@
         .addTo(m)
         .bindTooltip(`${hotel.name} (hospedagem)`, { permanent: false, direction: "top" });
       boundsPoints.push([hotel.lat, hotel.lng]);
+    }
+
+    if (station) {
+      const stationIcon = L.divIcon({
+        className: "poi-marker",
+        html: `<div class="poi-marker-inner poi-marker-inner--station">${stationIconSvg}</div>`,
+        iconSize: [30, 30],
+      });
+      L.marker([station.lat, station.lng], { icon: stationIcon })
+        .addTo(m)
+        .bindTooltip(`${station.name} (estação)`, { permanent: false, direction: "top" });
+      boundsPoints.push([station.lat, station.lng]);
     }
 
     const bounds = L.latLngBounds(boundsPoints);
