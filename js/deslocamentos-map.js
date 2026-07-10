@@ -66,6 +66,10 @@ document.querySelectorAll(".transit-map").forEach((el) => {
 
   let modalMap = null;
 
+  // keyboard focus follows the modal in and returns to the trigger on
+  // close — otherwise focus stays behind the aria-hidden overlay
+  let lastFocus = null;
+
   function destroyModalMap() {
     if (modalMap) {
       modalMap.remove();
@@ -89,6 +93,8 @@ document.querySelectorAll(".transit-map").forEach((el) => {
       parseFloat(btn.dataset.toLng),
       btn.dataset.type === "flight"
     );
+    lastFocus = document.activeElement;
+    closeBtn.focus();
   }
 
   function closeModal() {
@@ -96,6 +102,10 @@ document.querySelectorAll(".transit-map").forEach((el) => {
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     destroyModalMap();
+    if (lastFocus) {
+      lastFocus.focus();
+      lastFocus = null;
+    }
   }
 
   document.querySelectorAll(".map-expand-btn").forEach((btn) => {

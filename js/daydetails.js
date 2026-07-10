@@ -386,6 +386,10 @@ const poiDetailsData = {
   const closeBtn = document.getElementById("dayModalClose");
   if (!modal) return;
 
+  // keyboard focus follows the modal in and returns to the trigger on
+  // close — otherwise focus stays behind the aria-hidden overlay
+  let lastFocus = null;
+
   function openModal(id) {
     const data = poiDetailsData[id];
     if (!data) return;
@@ -411,12 +415,18 @@ const poiDetailsData = {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    lastFocus = document.activeElement;
+    closeBtn.focus();
   }
 
   function closeModal() {
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if (lastFocus) {
+      lastFocus.focus();
+      lastFocus = null;
+    }
   }
 
   document.querySelectorAll(".poi-num[data-poi], .poi-info-btn[data-poi]").forEach((btn) => {
