@@ -24,6 +24,7 @@ const cityMapData = {
   },
   anr: {
     accent: "#8e680b",
+    station: { name: "Antwerpen-Centraal", lat: 51.216, lng: 4.4211 },
     points: [
       { name: "Grote Markt", lat: 51.2208, lng: 4.3997 },
       { name: "Catedral de Nossa Senhora", lat: 51.2203, lng: 4.4014 },
